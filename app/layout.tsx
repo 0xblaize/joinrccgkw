@@ -1,4 +1,4 @@
-import type { Metadata } from "next";
+import type { Metadata, Viewport } from "next";
 import { Inter, Fraunces } from "next/font/google";
 import "./globals.css";
 
@@ -11,7 +11,6 @@ const inter = Inter({
 const fraunces = Fraunces({
   variable: "--font-fraunces",
   subsets: ["latin"],
-  weight: ["400", "500", "600", "700", "800", "900"],
   display: "swap",
   axes: ["SOFT", "WONK"],
 });
@@ -20,6 +19,9 @@ export const metadata: Metadata = {
   title: "RCCG Kings World, Ile-Ife — Welcome Home",
   description:
     "RCCG Kings World, Ile-Ife. A place of power, purpose and radical love. Raising Kings, Transforming the World.",
+};
+
+export const viewport: Viewport = {
   themeColor: "#000000",
 };
 

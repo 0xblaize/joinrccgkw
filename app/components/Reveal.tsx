@@ -45,7 +45,7 @@ export default function Reveal({
   const Tag = as as React.ElementType;
   return (
     <Tag
-      ref={ref as React.RefObject<HTMLElement>}
+      ref={ref}
       className={`reveal ${large ? "reveal-lg" : ""} ${visible ? "is-in" : ""} ${className}`}
       style={{ transitionDelay: `${delay}ms` }}
     >
