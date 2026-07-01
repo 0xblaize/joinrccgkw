@@ -1,0 +1,179 @@
+@import "tailwindcss";
+
+:root {
+  --background: #0b0f19;
+  --foreground: #f5efe0;
+  --burgundy: #6a0f2a;
+  --burgundy-glow: #8b1538;
+  --burgundy-deep: #3d0817;
+  --gold: #d4af37;
+  --gold-bright: #f4d160;
+  --gold-soft: #b8912b;
+  --ink: #0b0f19;
+  --ink-2: #10152a;
+  --glass: rgba(255, 255, 255, 0.04);
+  --glass-border: rgba(212, 175, 55, 0.18);
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-burgundy: var(--burgundy);
+  --color-burgundy-glow: var(--burgundy-glow);
+  --color-burgundy-deep: var(--burgundy-deep);
+  --color-gold: var(--gold);
+  --color-gold-bright: var(--gold-bright);
+  --color-gold-soft: var(--gold-soft);
+  --color-ink: var(--ink);
+  --color-ink-2: var(--ink-2);
+  --font-sans: var(--font-inter);
+  --font-display: var(--font-cinzel);
+  --font-mono: var(--font-geist-mono);
+}
+
+html,
+body {
+  background: var(--background);
+  color: var(--foreground);
+  font-family: var(--font-inter), Arial, Helvetica, sans-serif;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* Base ambient background — gold + burgundy nebulas over deep ink */
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  background:
+    radial-gradient(80vw 60vh at 12% 8%, rgba(212, 175, 55, 0.10), transparent 60%),
+    radial-gradient(70vw 55vh at 90% 20%, rgba(139, 21, 56, 0.22), transparent 60%),
+    radial-gradient(90vw 70vh at 50% 110%, rgba(106, 15, 42, 0.30), transparent 60%),
+    linear-gradient(180deg, #0b0f19 0%, #080b14 100%);
+  pointer-events: none;
+}
+
+/* Fine gold grain overlay */
+body::after {
+  content: "";
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  background-image:
+    linear-gradient(rgba(212, 175, 55, 0.035) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(212, 175, 55, 0.035) 1px, transparent 1px);
+  background-size: 44px 44px;
+  mask-image: radial-gradient(ellipse at center, #000 40%, transparent 85%);
+  pointer-events: none;
+}
+
+@layer utilities {
+  .font-display {
+    font-family: var(--font-cinzel), serif;
+    letter-spacing: 0.01em;
+  }
+  .text-gradient-royal {
+    background: linear-gradient(120deg, #f4d160 0%, #d4af37 40%, #f5efe0 60%, #8b1538 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+  }
+  .text-gradient-gold {
+    background: linear-gradient(180deg, #f4d160 0%, #d4af37 60%, #8a6d1c 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+  }
+  .glass {
+    background: linear-gradient(180deg, rgba(255,255,255,0.05), rgba(255,255,255,0.015));
+    border: 1px solid rgba(212, 175, 55, 0.18);
+    backdrop-filter: blur(14px);
+    -webkit-backdrop-filter: blur(14px);
+  }
+  .glass-burgundy {
+    background:
+      linear-gradient(180deg, rgba(139, 21, 56, 0.18), rgba(139, 21, 56, 0.04)),
+      linear-gradient(180deg, rgba(255,255,255,0.04), rgba(255,255,255,0.01));
+    border: 1px solid rgba(212, 175, 55, 0.22);
+    backdrop-filter: blur(14px);
+    -webkit-backdrop-filter: blur(14px);
+  }
+  .ring-gold {
+    box-shadow:
+      0 0 0 1px rgba(212, 175, 55, 0.35),
+      0 10px 40px -10px rgba(212, 175, 55, 0.35),
+      inset 0 1px 0 rgba(255,255,255,0.08);
+  }
+  .glow-gold {
+    box-shadow:
+      0 0 22px rgba(212, 175, 55, 0.45),
+      0 0 60px rgba(212, 175, 55, 0.20);
+  }
+  .glow-burgundy {
+    box-shadow:
+      0 0 30px rgba(139, 21, 56, 0.55),
+      0 0 80px rgba(139, 21, 56, 0.28);
+  }
+  .hairline {
+    background: linear-gradient(90deg, transparent, rgba(212,175,55,0.55), transparent);
+  }
+  .btn-gold {
+    background: linear-gradient(180deg, #f4d160 0%, #d4af37 55%, #a37f22 100%);
+    color: #1a0a14;
+    box-shadow:
+      0 10px 30px -10px rgba(212, 175, 55, 0.7),
+      inset 0 1px 0 rgba(255,255,255,0.55),
+      inset 0 -1px 0 rgba(0,0,0,0.25);
+  }
+  .btn-outline-gold {
+    border: 1px solid rgba(212, 175, 55, 0.55);
+    color: #f4d160;
+    background: rgba(212, 175, 55, 0.04);
+  }
+  .btn-outline-gold:hover {
+    background: rgba(212, 175, 55, 0.10);
+  }
+  .card-hover {
+    transition: transform .5s ease, box-shadow .5s ease, border-color .5s ease, background .5s ease;
+  }
+  .card-hover:hover {
+    transform: translateY(-6px);
+    border-color: rgba(212, 175, 55, 0.55);
+    box-shadow:
+      0 30px 60px -20px rgba(139, 21, 56, 0.45),
+      0 0 0 1px rgba(212, 175, 55, 0.35);
+  }
+  @keyframes floaty {
+    0%, 100% { transform: translateY(0) }
+    50% { transform: translateY(-14px) }
+  }
+  .animate-floaty {
+    animation: floaty 9s ease-in-out infinite;
+  }
+  @keyframes shimmer {
+    0% { background-position: -200% 0 }
+    100% { background-position: 200% 0 }
+  }
+  .shimmer {
+    background: linear-gradient(90deg, transparent, rgba(244, 209, 96, 0.35), transparent);
+    background-size: 200% 100%;
+    animation: shimmer 3.5s linear infinite;
+  }
+  .marquee-mask {
+    mask-image: linear-gradient(90deg, transparent, #000 8%, #000 92%, transparent);
+  }
+}
+
+/* Selection */
+::selection {
+  background: rgba(212, 175, 55, 0.35);
+  color: #fff;
+}
+
+/* Scrollbar */
+::-webkit-scrollbar { width: 10px; height: 10px; }
+::-webkit-scrollbar-track { background: #0b0f19; }
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(180deg, #6a0f2a, #d4af37);
+  border-radius: 10px;
+}

@@ -1,0 +1,99 @@
+👑 RCCG Kings World - Landing Page Blueprint
+
+Vibe & Aesthetic: "Cray" / High-Energy / Modern. Dark mode background (#0B0F19) with burgundy color and royal gold glassmorphism elements. Bold, massive typography. find a  very goo very good way to use the mix of colors please 
+
+1. Global Navigation (Sticky Header)
+
+Left: "KW" stylized logo + .
+
+Center Tabs: About | Community | Sermons | Map | Give | Quick Links
+
+Right (Call to Action): A glowing [ Portal Login ] button. (This is where members click to access the Next.js/Neon database dashboard for check-ins and birthdays).
+
+2. Hero Section (Above the Fold)
+
+The first thing people see. It needs to be breathtaking.
+
+Visual: Abstract glowing orbs (blue and gold) with a dark, cinematic overlay of a worship experience.
+
+Headline: Massive, bold text: "Welcome Home to Kings World."
+
+Sub-headline: "A place of power, purpose, and radical love. Join the family."
+
+Buttons: [ Plan a Visit ] (Primary Gold) & [ Watch Latest Sermon ] (Secondary Outline).
+
+3. About Section (Raising Kings)
+
+Tied to the "About" tab.
+
+Content: Short, punchy text about the church's mandate (e.g., "Raising Kings, Transforming The World"). head pasot pictgure rrccg stuff
+
+Service Times: Clear, glowing cards showing Sunday and Wednesday service times.
+
+Visual: A staggered image grid showing the congregation and pastors.
+
+4. Community Section (Find Your Tribe)
+
+Tied to the "Community" tab.
+
+Concept: Church isn't meant to be done alone.
+
+Layout: 3 interactive "Glass" cards that hover when touched:
+
+Kings Kids (Children's Ministry)
+
+Youth & Young Adults
+
+Life Groups (Mid-week cell groups)
+
+5. Sermons Section (Media & Messages)
+
+Tied to the "Sermons" tab.
+
+Concept: A mini Netflix-style carousel.
+
+Content: 3 recent sermon thumbnails with play icons.
+
+Details: Sermon Title, Date, and Speaker name.
+
+Button: [ View Sermon Archive ]
+
+6. Give Section (Advancing the Kingdom)
+
+Tied to the "Give" tab.
+
+Visual: A rich, gold-tinted section.
+
+Content: "Your generosity helps us build the church and impact Lagos."
+
+Buttons: Two distinct options: [ Give Online (Card) ] and [ Bank Transfer Details ].
+
+7. Map & Location Section (Visit Us)
+
+Tied to the "Map" tab.
+
+Visual: A dark-themed, stylized map of your location in Lagos with a glowing pin.
+
+Content:
+
+Physical Address (e.g., Victoria Island, Lagos).
+
+Contact Email & Phone Number.
+
+Button: [ Get Directions ] (Links to Google Maps).
+
+8. Footer (Quick Links)
+
+Tied to the "Quick Links" tab (This serves as the anchor at the bottom of the page).
+
+Column 1: KW Logo and a short vision statement. Social Media Icons (IG, YouTube, Twitter).
+
+Column 2 (Quick Links): Fast text links to About, Community, Give, etc.
+
+Column 3 (Member Access): Text links pointing to the App Dashboard (Portal Login, Create Account, Check-in).
+
+Column 4: Newsletter signup input field.
+
+Bottom: Copyright 2026 RCCG Kings World.
+
+check anything on rccg kw ile ife and add it 
