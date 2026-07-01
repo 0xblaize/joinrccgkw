@@ -1,24 +1,22 @@
-export default function Logo({ className = "" }: { className?: string }) {
+export default function Logo({ small = false }: { small?: boolean }) {
   return (
-    <div className={`inline-flex items-center gap-2 ${className}`}>
-      <span
-        className="relative grid place-items-center w-10 h-10 rounded-full ring-gold"
-        aria-hidden
-      >
-        <span className="absolute inset-0 rounded-full bg-gradient-to-br from-[#f4d160] via-[#d4af37] to-[#6a0f2a] opacity-90" />
-        <span className="absolute inset-[3px] rounded-full bg-[#0b0f19]" />
-        <span className="relative font-display font-bold text-[13px] tracking-[0.02em] text-gradient-gold">
+    <div className="inline-flex items-center gap-3">
+      <span className="relative grid place-items-center w-9 h-9 rounded-full border border-white/20">
+        <span className="absolute inset-[3px] rounded-full bg-[color:var(--burgundy)]" />
+        <span className="relative font-display font-bold text-[12px] tracking-wider text-white">
           KW
         </span>
       </span>
-      <span className="hidden sm:flex flex-col leading-[1.05]">
-        <span className="font-display text-[13px] tracking-[0.28em] text-gradient-gold">
-          KINGS WORLD
+      {!small && (
+        <span className="hidden sm:flex flex-col leading-[1.05]">
+          <span className="text-[12px] tracking-[0.28em] text-white uppercase">
+            Kings World
+          </span>
+          <span className="text-[9px] tracking-[0.4em] text-white/50 uppercase">
+            RCCG · Ile-Ife
+          </span>
         </span>
-        <span className="text-[10px] tracking-[0.35em] text-[#f5efe0]/60">
-          RCCG · ILE-IFE
-        </span>
-      </span>
+      )}
     </div>
   );
 }
