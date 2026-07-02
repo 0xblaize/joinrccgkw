@@ -13,6 +13,7 @@ export default function About() {
     <section id="about" className="bg-black py-24 sm:py-28">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <SectionHeading
+          chapter="01"
           eyebrow="About"
           title="About Kings World."
           description="We are a parish of the Redeemed Christian Church of God based in Ile-Ife. Our vision is to build a family of believers who love God, love people, and serve their generation."

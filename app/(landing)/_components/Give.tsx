@@ -8,6 +8,7 @@ export default function Give() {
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-16 items-start">
           <div>
             <SectionHeading
+              chapter="04"
               eyebrow="Give"
               title="Give and be a part."
               description="Your giving supports Sunday service, our missions, media work, and outreach across Ile-Ife. Thank you for partnering with us."

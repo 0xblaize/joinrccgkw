@@ -1,11 +1,13 @@
 import Reveal from "./Reveal";
 
 export default function SectionHeading({
+  chapter,
   eyebrow,
   title,
   description,
   align = "left",
 }: {
+  chapter?: string;
   eyebrow: string;
   title: string;
   description?: string;
@@ -16,8 +18,15 @@ export default function SectionHeading({
   return (
     <div className={`flex flex-col ${alignCls} gap-4 max-w-2xl`}>
       <Reveal>
-        <div className="flex items-center gap-3">
-          <span className="h-px w-8 bg-[color:var(--burgundy-2)]" />
+        <div className="flex items-baseline gap-3">
+          {chapter && (
+            <>
+              <span className="font-display font-semibold text-[color:var(--burgundy-2)] tabular text-sm leading-none">
+                {chapter}
+              </span>
+              <span className="h-3 w-px self-center bg-[color:var(--burgundy-2)]/70" />
+            </>
+          )}
           <span className="eyebrow-burgundy">{eyebrow}</span>
         </div>
       </Reveal>

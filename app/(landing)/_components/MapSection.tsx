@@ -6,6 +6,7 @@ export default function MapSection() {
     <section id="map" className="bg-black py-24 sm:py-28 hair-t">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <SectionHeading
+          chapter="05"
           eyebrow="Visit"
           title="Visit us in Ile-Ife."
           description="We would love to have you at our next service. Here is where to find us and how to reach us."

@@ -32,6 +32,7 @@ export default function Community() {
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="flex flex-col lg:flex-row lg:items-end lg:justify-between gap-8">
           <SectionHeading
+            chapter="02"
             eyebrow="Community"
             title="Find your group."
             description="You are not meant to walk alone. Kings World is a family. Pick a group that fits your season and grow with us."
