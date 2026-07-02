@@ -1,5 +1,4 @@
 import Image from "next/image";
-import HeroThree from "./HeroThree";
 
 export default function Hero() {
   return (
@@ -30,7 +29,7 @@ export default function Hero() {
         className="pointer-events-none absolute inset-0 flex items-center justify-center z-[5]"
       >
         <div className="w-[70vw] max-w-[520px] aspect-square opacity-90">
-          <HeroThree />
+          
         </div>
       </div>
 
