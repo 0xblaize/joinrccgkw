@@ -55,7 +55,7 @@ export default function About() {
               <div className="card rounded-2xl p-6">
                 <div className="eyebrow-burgundy">Our Vision</div>
                 <div className="mt-3 font-display text-2xl leading-tight">
-                  1 RCCG. 1 Vision.
+                  To make Heaven.
                 </div>
                 <p className="mt-3 text-white/85 leading-relaxed">
                   To raise a generation of believers who know God intimately,

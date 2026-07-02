@@ -25,14 +25,14 @@ const tribes = [
       "https://images.unsplash.com/photo-1529333166437-7750a6dd5a70?auto=format&fit=crop&w=1200&q=80",
   },
   {
-    name: "Marketplace",
+    name: "Kings at Work",
     body: "For entrepreneurs, business owners, and professionals learning to steward influence, capital, and craft as an act of worship.",
     ages: "Working adults",
     image:
       "https://images.unsplash.com/photo-1552664730-d307ca884978?auto=format&fit=crop&w=1200&q=80",
   },
   {
-    name: "Tech and Media",
+    name: "Builders",
     body: "Engineers, designers, creators, and media hands using their gifts to build the house of God and reach the next generation online.",
     ages: "All skill levels",
     image:
