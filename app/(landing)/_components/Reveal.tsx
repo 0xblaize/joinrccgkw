@@ -2,7 +2,7 @@ type Props = {
   children: React.ReactNode;
   className?: string;
   delay?: number;
-  as?: keyof React.JSX.IntrinsicElements;
+  as?: React.ElementType;
   large?: boolean;
   once?: boolean;
 };
@@ -10,8 +10,7 @@ type Props = {
 export default function Reveal({
   children,
   className = "",
-  as = "div",
+  as: Tag = "div",
 }: Props) {
-  const Tag = as as React.ElementType;
   return <Tag className={className}>{children}</Tag>;
 }
