@@ -36,18 +36,10 @@ export default function Hero() {
 
       <div className="relative z-10 mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 pt-32 pb-20 min-h-[100svh] flex flex-col justify-end">
         <div className="max-w-2xl">
-          <span className="relative inline-flex isolate badge-appear">
-            <span
-              aria-hidden
-              className="absolute -inset-[1.5px] rounded-full spiral-ring pointer-events-none"
-            />
-            <span className="relative inline-flex items-center gap-2.5 rounded-full border border-white/25 bg-white/15 backdrop-blur-md px-4 py-2 text-[11px] tracking-[0.25em] uppercase text-white shadow-[0_8px_30px_rgba(0,0,0,0.35)]">
-              <span
-                className="w-1.5 h-1.5 rounded-full bg-[color:var(--burgundy-2)] dot-pulse"
-              />
-              <span className="badge-blink">RCCG Kings World</span>
-            </span>
-          </span>
+          <div className="flex items-center gap-3">
+            <span className="h-px w-8 bg-[color:var(--burgundy-2)]" />
+            <span className="eyebrow-burgundy">RCCG Kings World</span>
+          </div>
 
           <h1 className="font-display font-semibold mt-6 text-4xl sm:text-5xl leading-[1.1] tracking-tight">
             Welcome Home For Kings.

@@ -1,99 +1,103 @@
-👑 RCCG Kings World - Landing Page Blueprint
+👑 RCCG Kings World, Ile-Ife — Landing Page Spec (current build)
 
-Vibe & Aesthetic: "Cray" / High-Energy / Modern. Dark mode background (#0B0F19) with burgundy color and royal gold glassmorphism elements. Bold, massive typography. find a  very goo very good way to use the mix of colors please 
+Vibe & Aesthetic:
+- Pure black background (#000000) everywhere, no gradients on the base surface.
+- Burgundy is the only accent color. No gold anywhere.
+  --burgundy: #7b1e3a
+  --burgundy-2: #a81e4f
+- Text is white with dimmed variants (rgba white). Hairlines are 1px rgba(255,255,255,0.10).
+- Typography: Inter for UI text (via next/font/google), Fraunces variable serif for display headings. Normal sizes (text-3xl / sm:text-4xl for section headings, text-4xl / sm:text-5xl for the hero h1). No massive display type.
+- Real church website inspiration: VOUS, Elevation, Passion City. Minimal, no marquees, no scroll-reveal animations, no over-designed effects.
 
-1. Global Navigation (Sticky Header)
+Tech stack:
+- Next.js 16 App Router with Turbopack.
+- React 19.
+- Tailwind CSS v4 (via @tailwindcss/postcss).
+- three.js + @react-three/fiber + @react-three/drei for the hero centerpiece.
 
-Left: "KW" stylized logo + .
+Folder layout (route groups so future sections can slot in):
+  app/
+    layout.tsx                       (shared root layout, Inter + Fraunces fonts)
+    globals.css                      (shared theme + keyframes)
+    (landing)/
+      page.tsx                       (URL "/")
+      _components/
+        Nav.tsx, Hero.tsx, HeroThree.tsx, ThreeScene.tsx,
+        About.tsx, Community.tsx, Sermons.tsx, Give.tsx,
+        MapSection.tsx, Footer.tsx,
+        Logo.tsx, Reveal.tsx, SectionHeading.tsx
 
-Center Tabs: About | Community | Sermons | Map | Give | Quick Links
+Future top-level folders (portal, auth, checkin, birthdays) will sit alongside (landing) at app/ root.
 
-Right (Call to Action): A glowing [ Portal Login ] button. (This is where members click to access the Next.js/Neon database dashboard for check-ins and birthdays).
+1. Global Navigation (sticky, transparent → black/85 on scroll)
+- Left: Plain white "KW" logo text (font-display, bold, text-2xl / sm:text-3xl, tracking-wider). No background chip.
+- Tabs (desktop): About | Community | Sermons | Give | Visit — small white/75 with animated underline on hover.
+- Right: [Join Us] pill button (burgundy) on ≥sm. Hamburger toggle on <lg → full-screen mobile menu.
 
-2. Hero Section (Above the Fold)
+2. Hero Section (Above the fold, 100svh)
+- Background image: /hero-bg.jpg (congregation worshipping), object-cover, opacity-70, priority.
+- Dark linear gradient overlay top → bottom for legibility.
+- Centered 3D visual (three.js): rotating wireframe icosahedron in burgundy + soft white outer + darker inner core. Client-only (HeroThree wraps ThreeScene in dynamic ssr:false).
+- Content sits at the bottom-left of the hero, max-w-2xl:
+  - Eyebrow row: 32px burgundy hairline + "RCCG Kings World" in eyebrow-burgundy style.
+  - H1: "Welcome Home For Kings." (font-display semibold).
+  - Copy: "We are a family of believers in Ile-Ife. Come as you are. There is a seat for you this Sunday."
+  - Primary CTA: [Plan a Visit] → #join (burgundy pill).
+  - Secondary CTA: [Watch Latest Sermon] → #sermons (ghost pill, play icon).
+  - Service strip: Sundays 9:00 AM • Wednesdays 6:30 PM • Ile-Ife, Osun.
+- Bottom-right (≥sm): animated scroll cue — a thin 64px vertical track with a white segment that slides slowly down and fades on a 2.6s loop.
 
-The first thing people see. It needs to be breathtaking.
+3. About Section
+- SectionHeading: eyebrow "About", title "About Kings World.", short description.
+- Left card (lg:col-span-6): tall Unsplash portrait card of Sunday service with bottom gradient and "Pastor in Charge — RCCG Kings World, Ile-Ife" overlay.
+- Right column (lg:col-span-6): Vision card + 3 service cards.
+  - Sunday — Sunday Service — 9:00 AM
+  - Wednesday — Bible Study — 6:30 PM
+  - Friday — Prayer Night — 10:00 PM
 
-Visual: Abstract glowing orbs (blue and gold) with a dark, cinematic overlay of a worship experience.
+4. Community Section
+- SectionHeading + "See all groups →" link.
+- 3 cards with image + gradient + text:
+  - Kings Kids (ages 2–12).
+  - Youth and Young Adults (ages 13–30).
+  - Life Groups (all ages).
 
-Headline: Massive, bold text: "Welcome Home to Kings World."
+5. Sermons Section
+- SectionHeading + prev/next scroll buttons + [All Sermons] pill.
+- Horizontal snap scroller with 4 sermon cards. Each card: 16:10 thumbnail, play button that highlights burgundy on hover, duration chip, title, speaker · date row.
+- Current sermons: "The Weight of the Crown", "Fire Fell", "Kings Do Not Kneel to Culture", "Rooted".
 
-Sub-headline: "A place of power, purpose, and radical love. Join the family."
+6. Give Section
+- Left: SectionHeading "Give and be a part." with short copy.
+- Right: Give card
+  - Suggested amount headline: ₦10,000 (tabular Fraunces).
+  - Amount preset row: ₦1,000 / ₦5,000 / ₦10,000 / ₦25,000.
+  - Buttons: [Give Online] (burgundy) + [Bank Transfer] (ghost).
+  - Footer row: "Secure payment by Paystack" · "Malachi 3:10" (burgundy).
 
-Buttons: [ Plan a Visit ] (Primary Gold) & [ Watch Latest Sermon ] (Secondary Outline).
+7. Map & Location Section
+- Left (lg:col-span-8): rounded card with Google Maps iframe of Ile-Ife (grayscale + contrast + subtle bottom gradient).
+- Right (lg:col-span-4): stacked cards for Address, Email (hello@rccgkingsworld.org), Phone (+234 000 000 0000), and a burgundy [Get Directions] pill.
 
-3. About Section (Raising Kings)
+8. Footer
+- Column 1: KW logo + short vision line + social row (Instagram, YouTube, Twitter — burgundy hover fill).
+- Column 2 — Quick Links: About, Community, Sermons, Give, Visit.
+- Column 3 — Member Access: Join Us, Create Account, Sunday Check In, Birthdays.
+- Column 4 — Newsletter: email input with burgundy submit arrow.
+- Bottom row: "© 2026 RCCG Kings World, Ile-Ife. All rights reserved." / "Made in Ile-Ife".
 
-Tied to the "About" tab.
+Copy & style rules:
+- No middle-dots (·) or em-dashes (—) as separators in body copy. Plain sentences.
+- No AI-flavored phrasing ("vibe", "cinematic", "breathtaking", "radical"). Church-native, warm, direct.
+- Only pure black backgrounds. Only burgundy as accent. No gold, no blue.
+- No entrance / scroll-reveal animations. The only motion allowed is:
+  1. Three.js icosahedron rotation in the hero.
+  2. Scroll cue slide-down in the hero.
+  3. Nav background fade on scroll.
+  4. Hover states (button colors, card border, image scale, link underline).
 
-Content: Short, punchy text about the church's mandate (e.g., "Raising Kings, Transforming The World"). head pasot pictgure rrccg stuff
-
-Service Times: Clear, glowing cards showing Sunday and Wednesday service times.
-
-Visual: A staggered image grid showing the congregation and pastors.
-
-4. Community Section (Find Your Tribe)
-
-Tied to the "Community" tab.
-
-Concept: Church isn't meant to be done alone.
-
-Layout: 3 interactive "Glass" cards that hover when touched:
-
-Kings Kids (Children's Ministry)
-
-Youth & Young Adults
-
-Life Groups (Mid-week cell groups)
-
-5. Sermons Section (Media & Messages)
-
-Tied to the "Sermons" tab.
-
-Concept: A mini Netflix-style carousel.
-
-Content: 3 recent sermon thumbnails with play icons.
-
-Details: Sermon Title, Date, and Speaker name.
-
-Button: [ View Sermon Archive ]
-
-6. Give Section (Advancing the Kingdom)
-
-Tied to the "Give" tab.
-
-Visual: A rich, gold-tinted section.
-
-Content: "Your generosity helps us build the church and impact Lagos."
-
-Buttons: Two distinct options: [ Give Online (Card) ] and [ Bank Transfer Details ].
-
-7. Map & Location Section (Visit Us)
-
-Tied to the "Map" tab.
-
-Visual: A dark-themed, stylized map of your location in Lagos with a glowing pin.
-
-Content:
-
-Physical Address (e.g., Victoria Island, Lagos).
-
-Contact Email & Phone Number.
-
-Button: [ Get Directions ] (Links to Google Maps).
-
-8. Footer (Quick Links)
-
-Tied to the "Quick Links" tab (This serves as the anchor at the bottom of the page).
-
-Column 1: KW Logo and a short vision statement. Social Media Icons (IG, YouTube, Twitter).
-
-Column 2 (Quick Links): Fast text links to About, Community, Give, etc.
-
-Column 3 (Member Access): Text links pointing to the App Dashboard (Portal Login, Create Account, Check-in).
-
-Column 4: Newsletter signup input field.
-
-Bottom: Copyright 2026 RCCG Kings World.
-
-check anything on rccg kw ile ife and add it 
+Future work slot-ins (planned folders alongside app/(landing)):
+- app/(auth) — login / signup for members.
+- app/portal — member dashboard.
+- app/checkin — Sunday check-in flow.
+- app/birthdays — birthday board.
