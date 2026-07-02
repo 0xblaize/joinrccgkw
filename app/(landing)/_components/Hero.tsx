@@ -33,7 +33,7 @@ export default function Hero() {
         </div>
       </div>
 
-      <div className="relative z-10 mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 pt-32 pb-36 min-h-[100svh] flex flex-col justify-end">
+      <div className="relative z-10 mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 pt-32 pb-16 min-h-[100svh] flex flex-col justify-end">
         <div className="max-w-2xl">
           <div className="relative inline-flex items-center px-5 py-2.5">
             <span
@@ -102,9 +102,9 @@ export default function Hero() {
         </div>
       </div>
 
-      <div className="absolute bottom-6 left-1/2 -translate-x-1/2 z-20">
-        <div className="relative w-[24px] h-10 rounded-full border border-white/70">
-          <span className="absolute left-1/2 top-2 -translate-x-1/2 w-[3px] h-[7px] rounded-full bg-white mouse-scroll-dot" />
+      <div className="absolute bottom-5 left-1/2 -translate-x-1/2 z-20">
+        <div className="relative w-[18px] h-7 rounded-full border border-white/35">
+          <span className="absolute left-1/2 top-1.5 -translate-x-1/2 w-[2px] h-[5px] rounded-full bg-white/70 mouse-scroll-dot" />
         </div>
       </div>
     </section>
