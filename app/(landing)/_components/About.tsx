@@ -40,7 +40,7 @@ export default function About() {
               <div className="absolute inset-x-0 bottom-0 p-6">
                 <div className="eyebrow-burgundy">Pulpit</div>
                 <div className="mt-2 font-display text-2xl">
-                  Pastor in Charge
+                  Pastor in Charge of Zone
                 </div>
                 <div className="text-white/60 text-sm mt-1">
                   RCCG Kings World, Ile-Ife
@@ -53,6 +53,9 @@ export default function About() {
             <Reveal>
               <div className="card rounded-2xl p-6">
                 <div className="eyebrow-burgundy">Our Vision</div>
+                <div className="mt-3 font-display text-2xl leading-tight">
+                  1 RCCG. 1 Vision.
+                </div>
                 <p className="mt-3 text-white/85 leading-relaxed">
                   To raise a generation of believers who know God intimately,
                   live by His word, and impact every area of society for

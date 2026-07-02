@@ -17,7 +17,7 @@ export default function MapSection() {
             <div className="relative rounded-2xl overflow-hidden card aspect-[16/10] lg:aspect-auto lg:h-[460px]">
               <iframe
                 title="Kings World location"
-                src="https://www.google.com/maps?q=Ile-Ife,Osun,Nigeria&output=embed"
+                src="https://www.google.com/maps?q=Oremeji+Junction,+Ile-Ife,+Osun&output=embed"
                 loading="lazy"
                 referrerPolicy="no-referrer-when-downgrade"
                 className="absolute inset-0 w-full h-full grayscale contrast-125 opacity-90"
@@ -38,11 +38,11 @@ export default function MapSection() {
               <div className="card rounded-2xl p-5">
                 <div className="eyebrow-burgundy">Address</div>
                 <div className="mt-2 leading-snug">
-                  RCCG Kings World
+                  Oremeji Junction, opposite OAUTHC Phase III
+                  <br />
+                  (Obafemi Awolowo University Teaching Hospitals Complex)
                   <br />
                   Ile-Ife, Osun State
-                  <br />
-                  Nigeria
                 </div>
               </div>
             </Reveal>
@@ -75,7 +75,7 @@ export default function MapSection() {
 
             <Reveal>
               <a
-                href="https://maps.google.com/?q=Ile-Ife,Nigeria"
+                href="https://maps.google.com/?q=Oremeji+Junction,+Ile-Ife,+Osun"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="mt-1 h-12 grid place-items-center rounded-full btn-primary text-sm font-medium"
