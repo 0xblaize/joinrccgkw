@@ -1,6 +1,5 @@
 import Nav from "./components/Nav";
 import Hero from "./components/Hero";
-import Marquee from "./components/Marquee";
 import About from "./components/About";
 import Community from "./components/Community";
 import Sermons from "./components/Sermons";
@@ -14,19 +13,8 @@ export default function Home() {
       <Nav />
       <main className="relative">
         <Hero />
-        <Marquee />
         <About />
         <Community />
-        <Marquee
-          items={[
-            "Watch the latest sermon",
-            "The Weight of the Crown",
-            "New series dropping",
-            "Kings World Media",
-            "Subscribe on YouTube",
-          ]}
-          slow
-        />
         <Sermons />
         <Give />
         <MapSection />
