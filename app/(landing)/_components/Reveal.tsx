@@ -1,3 +1,5 @@
+import { createElement } from "react";
+
 type Props = {
   children: React.ReactNode;
   className?: string;
@@ -10,7 +12,7 @@ type Props = {
 export default function Reveal({
   children,
   className = "",
-  as: Tag = "div",
+  as = "div",
 }: Props) {
-  return <Tag className={className}>{children}</Tag>;
+  return createElement(as, { className }, children);
 }
