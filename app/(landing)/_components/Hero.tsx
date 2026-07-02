@@ -1,4 +1,5 @@
 import Image from "next/image";
+import HeroThree from "./HeroThree";
 
 export default function Hero() {
   return (
@@ -24,12 +25,29 @@ export default function Hero() {
         }}
       />
 
+      <div
+        aria-hidden
+        className="pointer-events-none absolute inset-0 flex items-center justify-center z-[5]"
+      >
+        <div className="w-[70vw] max-w-[520px] aspect-square opacity-90">
+          <HeroThree />
+        </div>
+      </div>
+
       <div className="relative z-10 mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 pt-32 pb-20 min-h-[100svh] flex flex-col justify-end">
         <div className="max-w-2xl">
-          <div className="flex items-center gap-3">
-            <span className="h-px w-8 bg-[color:var(--burgundy-2)]" />
-            <span className="eyebrow-burgundy">RCCG Kings World, Ile-Ife</span>
-          </div>
+          <span className="relative inline-flex isolate badge-appear">
+            <span
+              aria-hidden
+              className="absolute -inset-[1.5px] rounded-full spiral-ring pointer-events-none"
+            />
+            <span className="relative inline-flex items-center gap-2.5 rounded-full border border-white/25 bg-white/15 backdrop-blur-md px-4 py-2 text-[11px] tracking-[0.25em] uppercase text-white shadow-[0_8px_30px_rgba(0,0,0,0.35)]">
+              <span
+                className="w-1.5 h-1.5 rounded-full bg-[color:var(--burgundy-2)] dot-pulse"
+              />
+              <span className="badge-blink">RCCG Kings World</span>
+            </span>
+          </span>
 
           <h1 className="font-display font-semibold mt-6 text-4xl sm:text-5xl leading-[1.1] tracking-tight">
             Welcome Home For Kings.
@@ -78,8 +96,10 @@ export default function Hero() {
         </div>
       </div>
 
-      <div className="absolute bottom-6 right-6 hidden sm:flex items-center gap-2 text-xs tracking-widest uppercase text-white/50">
-        Scroll
+      <div className="absolute bottom-8 right-8 hidden sm:flex flex-col items-center gap-2">
+        <div className="relative h-16 w-px overflow-hidden bg-white/10">
+          <span className="absolute inset-x-0 top-0 h-6 bg-white scroll-cue" />
+        </div>
       </div>
     </section>
   );
