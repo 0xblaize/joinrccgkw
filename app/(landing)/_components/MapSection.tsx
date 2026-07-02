@@ -17,7 +17,7 @@ export default function MapSection() {
             <div className="relative rounded-2xl overflow-hidden card aspect-[16/10] lg:aspect-auto lg:h-[460px]">
               <iframe
                 title="Kings World location"
-                src="https://www.google.com/maps?q=Oremeji+Junction,+Ile-Ife,+Osun&output=embed"
+                src="https://www.google.com/maps?q=7.5052902,4.5745128&z=18&output=embed"
                 loading="lazy"
                 referrerPolicy="no-referrer-when-downgrade"
                 className="absolute inset-0 w-full h-full grayscale contrast-125 opacity-90"
@@ -75,7 +75,7 @@ export default function MapSection() {
 
             <Reveal>
               <a
-                href="https://maps.google.com/?q=Oremeji+Junction,+Ile-Ife,+Osun"
+                href="https://maps.app.goo.gl/CHh918KQZQomMTxF9"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="mt-1 h-12 grid place-items-center rounded-full btn-primary text-sm font-medium"

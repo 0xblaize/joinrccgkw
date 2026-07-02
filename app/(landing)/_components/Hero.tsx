@@ -88,11 +88,12 @@ export default function Hero() {
           <div className="mt-10 grid grid-cols-2 sm:grid-cols-3 gap-x-8 gap-y-3 text-sm text-white/70">
             <div>
               <div className="eyebrow">Sundays</div>
-              <div className="mt-1 text-white">9:00 AM</div>
+              <div className="mt-1 text-white tabular">8:00 AM</div>
+              <div className="text-white tabular">10:00 AM</div>
             </div>
             <div>
               <div className="eyebrow">Wednesdays</div>
-              <div className="mt-1 text-white">6:30 PM</div>
+              <div className="mt-1 text-white tabular">6:30 PM</div>
             </div>
             <div>
               <div className="eyebrow">Location</div>

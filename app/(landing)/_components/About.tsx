@@ -3,7 +3,8 @@ import Reveal from "./Reveal";
 import SectionHeading from "./SectionHeading";
 
 const services = [
-  { day: "Sunday", name: "Sunday Service", time: "9:00 AM" },
+  { day: "Sunday", name: "1st Service", time: "8:00 AM" },
+  { day: "Sunday", name: "2nd Service", time: "10:00 AM" },
   { day: "Wednesday", name: "Bible Study", time: "6:30 PM" },
   { day: "Friday", name: "Prayer Night", time: "10:00 PM" },
 ];
