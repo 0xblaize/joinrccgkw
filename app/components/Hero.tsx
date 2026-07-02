@@ -6,17 +6,15 @@ export default function Hero() {
       id="top"
       className="relative w-full min-h-[100svh] bg-black overflow-hidden"
     >
-      {/* Full background image — people raising hands in worship */}
       <Image
         src="/hero-bg.jpg"
-        alt="Congregation raising hands in worship"
+        alt="Congregation worshipping"
         fill
         priority
         sizes="100vw"
         className="object-cover object-center opacity-70"
       />
 
-      {/* Dark overlay for text legibility */}
       <div
         aria-hidden
         className="absolute inset-0"
@@ -26,22 +24,20 @@ export default function Hero() {
         }}
       />
 
-      {/* Content */}
       <div className="relative z-10 mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 pt-32 pb-20 min-h-[100svh] flex flex-col justify-end">
         <div className="max-w-2xl">
           <div className="flex items-center gap-3">
             <span className="h-px w-8 bg-[color:var(--burgundy-2)]" />
-            <span className="eyebrow-burgundy">RCCG Kings World · Ile-Ife</span>
+            <span className="eyebrow-burgundy">RCCG Kings World, Ile-Ife</span>
           </div>
 
-          <h1 className="font-display font-semibold mt-6 text-4xl sm:text-5xl lg:text-6xl leading-[1.05] tracking-tight">
-            Welcome Home For Kings .
+          <h1 className="font-display font-semibold mt-6 text-4xl sm:text-5xl leading-[1.1] tracking-tight">
+            Welcome Home For Kings.
           </h1>
 
           <p className="mt-5 text-base sm:text-lg text-white/80 leading-relaxed max-w-xl">
-            A place of power, purpose and radical love. Raising Kings,
-            transforming the world — one family at a time in the heart of
-            Ile-Ife.
+            We are a family of believers in Ile-Ife. Come as you are.
+            There is a seat for you this Sunday.
           </p>
 
           <div className="mt-8 flex flex-wrap gap-3">
@@ -68,11 +64,11 @@ export default function Hero() {
           <div className="mt-10 grid grid-cols-2 sm:grid-cols-3 gap-x-8 gap-y-3 text-sm text-white/70">
             <div>
               <div className="eyebrow">Sundays</div>
-              <div className="mt-1 text-white">9:00 AM WAT</div>
+              <div className="mt-1 text-white">9:00 AM</div>
             </div>
             <div>
               <div className="eyebrow">Wednesdays</div>
-              <div className="mt-1 text-white">6:30 PM WAT</div>
+              <div className="mt-1 text-white">6:30 PM</div>
             </div>
             <div>
               <div className="eyebrow">Location</div>
@@ -82,9 +78,8 @@ export default function Hero() {
         </div>
       </div>
 
-      {/* Scroll cue */}
       <div className="absolute bottom-6 right-6 hidden sm:flex items-center gap-2 text-xs tracking-widest uppercase text-white/50">
-        Scroll <span className="h-px w-8 bg-white/40" />
+        Scroll
       </div>
     </section>
   );
