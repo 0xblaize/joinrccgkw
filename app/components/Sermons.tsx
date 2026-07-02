@@ -15,7 +15,7 @@ const sermons = [
       "https://images.unsplash.com/photo-1511649475669-e288648b2339?auto=format&fit=crop&w=1200&q=80",
   },
   {
-    title: "Fire Fell — Consecrated for Assignment",
+    title: "Fire Fell",
     speaker: "Pastor A.",
     date: "May 19, 2026",
     duration: "52 min",
@@ -23,7 +23,7 @@ const sermons = [
       "https://images.unsplash.com/photo-1478147427282-58a87a120781?auto=format&fit=crop&w=1200&q=80",
   },
   {
-    title: "Kings Don't Kneel to Culture",
+    title: "Kings Do Not Kneel to Culture",
     speaker: "Pastor T.",
     date: "May 12, 2026",
     duration: "46 min",
@@ -31,7 +31,7 @@ const sermons = [
       "https://images.unsplash.com/photo-1508847154043-be5407fcaa5a?auto=format&fit=crop&w=1200&q=80",
   },
   {
-    title: "Rooted — the Well Runs Deep",
+    title: "Rooted",
     speaker: "Pastor J.",
     date: "May 5, 2026",
     duration: "41 min",
@@ -55,10 +55,10 @@ export default function Sermons() {
         <div className="flex flex-col lg:flex-row lg:items-end lg:justify-between gap-8">
           <SectionHeading
             eyebrow="Sermons"
-            title="Word that hits different."
-            description="Fresh, uncompromising, spirit-filled preaching from the Kings World pulpit. Stream it, take it into your week."
+            title="Recent sermons."
+            description="Catch up on messages from Sunday service. Watch, listen, and share with a friend."
           />
-          <Reveal delay={160}>
+          <Reveal>
             <div className="flex items-center gap-3">
               <button
                 aria-label="Previous"
@@ -82,7 +82,7 @@ export default function Sermons() {
                 href="#archive"
                 className="ml-2 hidden sm:inline-flex items-center h-10 px-4 rounded-full btn-ghost text-sm"
               >
-                Full Archive
+                All Sermons
               </a>
             </div>
           </Reveal>
@@ -95,12 +95,11 @@ export default function Sermons() {
             style={{ scrollbarWidth: "none" }}
           >
             <div className="flex gap-4 px-4 sm:px-6 lg:px-8 pb-4">
-              {sermons.map((s, i) => (
+              {sermons.map((s) => (
                 <Reveal
                   key={s.title}
                   as="article"
                   className="snap-start shrink-0 w-[80%] sm:w-[420px]"
-                  delay={i * 80}
                 >
                   <div className="group card rounded-2xl overflow-hidden">
                     <div className="relative aspect-[16/10]">

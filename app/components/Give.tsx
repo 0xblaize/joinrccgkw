@@ -9,14 +9,14 @@ export default function Give() {
           <div>
             <SectionHeading
               eyebrow="Give"
-              title="Your generosity builds the church."
-              description="Every seed sown here plants the gospel deeper in Ile-Ife, sends missionaries, funds our media, and fuels ministry to the next generation. Thank you for your partnership."
+              title="Give and be a part."
+              description="Your giving supports Sunday service, our missions, media work, and outreach across Ile-Ife. Thank you for partnering with us."
             />
           </div>
 
-          <Reveal delay={100}>
+          <Reveal>
             <div className="card rounded-2xl p-6 sm:p-8">
-              <div className="eyebrow-burgundy">Kings World · Giving</div>
+              <div className="eyebrow-burgundy">Kings World Giving</div>
               <div className="mt-4">
                 <div className="eyebrow">Suggested amount</div>
                 <div className="mt-1 tabular font-display text-4xl sm:text-5xl">
@@ -51,7 +51,7 @@ export default function Give() {
               </div>
 
               <div className="mt-5 pt-4 hair-t text-xs text-white/40 flex items-center justify-between">
-                <span>Secure · SSL · Paystack</span>
+                <span>Secure payment by Paystack</span>
                 <span className="text-[color:var(--burgundy-2)]">Malachi 3:10</span>
               </div>
             </div>

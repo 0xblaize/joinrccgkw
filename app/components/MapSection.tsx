@@ -7,8 +7,8 @@ export default function MapSection() {
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <SectionHeading
           eyebrow="Visit"
-          title="Come find us in Ile-Ife."
-          description="We meet in the ancient city where Nigeria was born. There's a seat with your name on it — pull up this Sunday."
+          title="Visit us in Ile-Ife."
+          description="We would love to have you at our next service. Here is where to find us and how to reach us."
         />
 
         <div className="mt-14 grid grid-cols-1 lg:grid-cols-12 gap-4">
@@ -33,7 +33,7 @@ export default function MapSection() {
           </Reveal>
 
           <div className="lg:col-span-4 flex flex-col gap-3">
-            <Reveal delay={80}>
+            <Reveal>
               <div className="card rounded-2xl p-5">
                 <div className="eyebrow-burgundy">Address</div>
                 <div className="mt-2 leading-snug">
@@ -46,7 +46,7 @@ export default function MapSection() {
               </div>
             </Reveal>
 
-            <Reveal delay={140}>
+            <Reveal>
               <a
                 href="mailto:hello@rccgkingsworld.org"
                 className="card rounded-2xl p-5 flex items-center justify-between hover:border-white/40 transition-colors"
@@ -59,7 +59,7 @@ export default function MapSection() {
               </a>
             </Reveal>
 
-            <Reveal delay={200}>
+            <Reveal>
               <a
                 href="tel:+2340000000000"
                 className="card rounded-2xl p-5 flex items-center justify-between hover:border-white/40 transition-colors"
@@ -72,7 +72,7 @@ export default function MapSection() {
               </a>
             </Reveal>
 
-            <Reveal delay={260}>
+            <Reveal>
               <a
                 href="https://maps.google.com/?q=Ile-Ife,Nigeria"
                 target="_blank"

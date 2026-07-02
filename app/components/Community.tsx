@@ -5,21 +5,21 @@ import SectionHeading from "./SectionHeading";
 const tribes = [
   {
     name: "Kings Kids",
-    body: "A safe, spirit-filled space where our little kings and queens encounter Jesus through play, story and worship.",
-    ages: "Ages 2 – 12",
+    body: "A safe place where children learn about Jesus through story, song, and play. Trained teachers, a fun classroom, and lots of love.",
+    ages: "Ages 2 to 12",
     image:
       "https://images.unsplash.com/photo-1503676260728-1c00da094a0b?auto=format&fit=crop&w=1200&q=80",
   },
   {
-    name: "Youth & Young Adults",
-    body: "For students of OAU and young adults chasing purpose. Real conversations, deep worship, real friendships.",
-    ages: "Ages 13 – 30",
+    name: "Youth and Young Adults",
+    body: "For students of OAU and young adults building purpose. Real conversations, worship, mentorship, and friendship.",
+    ages: "Ages 13 to 30",
     image:
       "https://images.unsplash.com/photo-1529156069898-49953e39b3ac?auto=format&fit=crop&w=1200&q=80",
   },
   {
     name: "Life Groups",
-    body: "Small circles across Ile-Ife where we do life — Bible, prayer, food, tears, testimonies. Family, not audience.",
+    body: "Small groups that meet during the week across Ile-Ife. We study the Bible, pray together, eat together, and grow together.",
     ages: "All ages",
     image:
       "https://images.unsplash.com/photo-1529333166437-7750a6dd5a70?auto=format&fit=crop&w=1200&q=80",
@@ -33,23 +33,23 @@ export default function Community() {
         <div className="flex flex-col lg:flex-row lg:items-end lg:justify-between gap-8">
           <SectionHeading
             eyebrow="Community"
-            title="Church isn't done alone."
-            description="Kings World is a family. Pick the tribe that fits your season — everyone has a place at the table."
+            title="Find your group."
+            description="You are not meant to walk alone. Kings World is a family. Pick a group that fits your season and grow with us."
           />
-          <Reveal delay={160}>
+          <Reveal>
             <a
               href="#groups"
               className="inline-flex items-center gap-2 text-sm text-[color:var(--burgundy-2)] link-underline"
             >
-              Explore all groups
+              See all groups
               <span>→</span>
             </a>
           </Reveal>
         </div>
 
         <div className="mt-14 grid grid-cols-1 md:grid-cols-3 gap-4">
-          {tribes.map((t, i) => (
-            <Reveal key={t.name} delay={i * 100}>
+          {tribes.map((t) => (
+            <Reveal key={t.name}>
               <article className="card rounded-2xl overflow-hidden group">
                 <div className="relative aspect-[4/3] overflow-hidden">
                   <Image

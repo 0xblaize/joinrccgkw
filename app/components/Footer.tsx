@@ -13,7 +13,7 @@ const quickLinks = [
 const memberLinks = [
   { label: "Join Us", href: "#join" },
   { label: "Create Account", href: "#signup" },
-  { label: "Sunday Check-in", href: "#checkin" },
+  { label: "Sunday Check In", href: "#checkin" },
   { label: "Birthdays", href: "#birthdays" },
 ];
 
@@ -25,8 +25,8 @@ export default function Footer() {
           <div>
             <Logo />
             <p className="mt-4 text-sm leading-relaxed text-white/60 max-w-xs">
-              Raising Kings, transforming the world. Based in Ile-Ife under
-              the covering of the RCCG.
+              A parish of the Redeemed Christian Church of God based in
+              Ile-Ife.
             </p>
             <div className="mt-5 flex items-center gap-3">
               <Social
@@ -82,7 +82,7 @@ export default function Footer() {
           <div>
             <div className="eyebrow-burgundy">Newsletter</div>
             <p className="mt-4 text-sm text-white/60">
-              Weekly word, sermon drops, and event updates.
+              Get sermons, event news, and updates in your inbox.
             </p>
             <form
               className="mt-3 flex items-center gap-2 hair-b pb-2"

@@ -102,15 +102,6 @@ body { overflow-x: hidden; }
   }
   .link-underline:hover::after { transform: scaleX(1); }
 
-  /* Scroll reveal */
-  .reveal {
-    opacity: 0;
-    transform: translateY(20px);
-    transition: opacity .8s ease, transform .8s ease;
-    will-change: transform, opacity;
-  }
-  .reveal.is-in { opacity: 1; transform: none; }
-
   .tabular { font-variant-numeric: tabular-nums; }
 }
 

@@ -8,7 +8,7 @@ export default function Hero() {
     >
       {/* Full background image — people raising hands in worship */}
       <Image
-        src="https://images.unsplash.com/photo-1519892300165-cb5542fb47c7?auto=format&fit=crop&w=2400&q=80"
+        src="/hero-bg.jpg"
         alt="Congregation raising hands in worship"
         fill
         priority
@@ -35,7 +35,7 @@ export default function Hero() {
           </div>
 
           <h1 className="font-display font-semibold mt-6 text-4xl sm:text-5xl lg:text-6xl leading-[1.05] tracking-tight">
-            Welcome home to Kings World.
+            Welcome Home For Kings .
           </h1>
 
           <p className="mt-5 text-base sm:text-lg text-white/80 leading-relaxed max-w-xl">
