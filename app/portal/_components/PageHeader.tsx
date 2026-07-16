@@ -13,14 +13,14 @@ export default function PageHeader({
   right?: ReactNode;
 }) {
   return (
-    <div className="flex items-start justify-between gap-4 mb-6">
+    <div className="flex items-start justify-between gap-4 mb-6 animate-rise">
       <div>
         {eyebrow && <div className="eyebrow-burgundy mb-2">{eyebrow}</div>}
-        <h1 className="font-display font-semibold text-2xl sm:text-3xl leading-tight">
+        <h1 className="font-display font-semibold text-2xl sm:text-3xl lg:text-4xl leading-tight">
           {title}
         </h1>
         {description && (
-          <p className="mt-2 text-sm text-white/60 max-w-md leading-relaxed">
+          <p className="mt-2 text-sm sm:text-base text-white/60 max-w-xl leading-relaxed">
             {description}
           </p>
         )}

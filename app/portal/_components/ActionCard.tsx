@@ -19,13 +19,13 @@ export default function ActionCard({
   return (
     <button
       onClick={onClick}
-      className="card-tap w-full text-left p-4 flex items-center gap-4"
+      className="card-tap w-full text-left p-4 flex items-center gap-4 group"
     >
       <span
-        className={`shrink-0 grid place-items-center w-11 h-11 rounded-xl ${
+        className={`shrink-0 tile w-11 h-11 ${
           tone === "confidential"
-            ? "confidential text-[color:var(--burgundy-2)]"
-            : "bg-white/[0.05] text-white/80"
+            ? "tile-rose"
+            : ""
         }`}
       >
         {icon}
@@ -38,7 +38,11 @@ export default function ActionCard({
           </span>
         )}
       </span>
-      <ChevronRight width={18} height={18} className="shrink-0 text-white/30" />
+      <ChevronRight
+        width={18}
+        height={18}
+        className="shrink-0 text-white/30 group-hover:translate-x-0.5 group-hover:text-white/60 transition"
+      />
     </button>
   );
 }

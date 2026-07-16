@@ -9,7 +9,7 @@ type Props = ButtonHTMLAttributes<HTMLButtonElement> & {
 };
 
 const variants: Record<Variant, string> = {
-  primary: "btn-primary",
+  primary: "btn-grad",
   ghost: "btn-ghost",
   subtle:
     "bg-white/[0.04] text-white border border-[color:var(--hair-strong)] hover:bg-white/[0.08] transition-colors",

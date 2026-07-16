@@ -9,9 +9,19 @@
   --burgundy-2: #a81e4f;
   --hair: rgba(255, 255, 255, 0.10);
   --hair-strong: rgba(255, 255, 255, 0.22);
-  /* Portal surfaces (slightly lifted off pure black for readable panels) */
-  --surface: #0a0708;
-  --surface-2: #120a0e;
+  /* Portal: layered dark surfaces (not flat black) for real depth */
+  --surface: #100b0e;
+  --surface-2: #171014;
+  --surface-3: #1e1519;
+  /* Vibrant brand gradient stops (burgundy -> rose) */
+  --rose: #e0517e;
+  --rose-2: #ff7aa8;
+  /* Warm gold secondary accent for celebration / giving highlights */
+  --gold: #e7b24c;
+  --gold-2: #f6d38a;
+  /* Glass fills */
+  --glass: rgba(255, 255, 255, 0.045);
+  --glass-2: rgba(255, 255, 255, 0.07);
 }
 
 @theme inline {
@@ -19,6 +29,10 @@
   --color-foreground: var(--fg);
   --color-burgundy: var(--burgundy);
   --color-burgundy-2: var(--burgundy-2);
+  --color-rose: var(--rose);
+  --color-rose-2: var(--rose-2);
+  --color-gold: var(--gold);
+  --color-gold-2: var(--gold-2);
   --font-sans: var(--font-inter);
   --font-display: var(--font-fraunces);
 }
@@ -109,50 +123,159 @@ body { overflow-x: hidden; }
 }
 
 /* ---------------------------------------------------------------- */
-/* Member Portal utilities (same tokens, no new colors)             */
+/* Member Portal — layered, glassy, gradient-lit design system       */
 /* ---------------------------------------------------------------- */
 @layer utilities {
-  /* Lifted panel for the light-on-dark portal cards */
+  /* Ambient gradient orbs behind the whole portal so glass has something
+     to refract. Sits in a fixed layer at z-0. */
+  .portal-ambient {
+    position: fixed;
+    inset: 0;
+    z-index: 0;
+    pointer-events: none;
+    overflow: hidden;
+    background:
+      radial-gradient(60rem 40rem at 8% -10%, rgba(168, 30, 79, 0.30), transparent 60%),
+      radial-gradient(50rem 40rem at 100% 0%, rgba(224, 81, 126, 0.16), transparent 55%),
+      radial-gradient(60rem 50rem at 50% 120%, rgba(231, 178, 76, 0.10), transparent 60%),
+      #08060a;
+  }
+  .portal-ambient::after {
+    /* faint film grain / vignette to kill banding */
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(120% 120% at 50% 0%, transparent 55%, rgba(0,0,0,0.55) 100%);
+  }
+
+  /* ---- Surfaces & glass ---- */
   .surface {
-    background: var(--surface);
+    background: linear-gradient(180deg, var(--surface-2), var(--surface));
     border: 1px solid var(--hair);
-    border-radius: 1rem;
+    border-radius: 1.25rem;
   }
   .surface-2 {
     background: var(--surface-2);
     border: 1px solid var(--hair);
-    border-radius: 1rem;
+    border-radius: 1.25rem;
   }
 
-  /* Pressable version of the landing card */
-  .card-tap {
-    background: var(--surface);
+  /* Frosted glass panel */
+  .glass {
+    background: var(--glass);
+    backdrop-filter: blur(16px) saturate(1.3);
+    -webkit-backdrop-filter: blur(16px) saturate(1.3);
     border: 1px solid var(--hair);
-    border-radius: 1rem;
-    transition: border-color .25s ease, background .25s ease, transform .12s ease;
+    border-radius: 1.25rem;
+    box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.06);
   }
-  .card-tap:hover { border-color: var(--hair-strong); background: var(--surface-2); }
-  .card-tap:active { transform: scale(0.99); }
 
-  /* Form fields */
+  /* Pressable glass card */
+  .card-tap {
+    background: var(--glass);
+    backdrop-filter: blur(14px) saturate(1.25);
+    -webkit-backdrop-filter: blur(14px) saturate(1.25);
+    border: 1px solid var(--hair);
+    border-radius: 1.25rem;
+    box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.05);
+    transition: border-color .25s ease, background .25s ease,
+                transform .12s ease, box-shadow .25s ease;
+  }
+  .card-tap:hover {
+    border-color: var(--hair-strong);
+    background: var(--glass-2);
+    box-shadow: inset 0 1px 0 rgba(255,255,255,0.08), 0 8px 30px -12px rgba(0,0,0,0.7);
+  }
+  .card-tap:active { transform: scale(0.985); }
+
+  /* Gradient hero card (the vibrant centerpiece) */
+  .hero-card {
+    position: relative;
+    overflow: hidden;
+    border-radius: 1.5rem;
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    background:
+      radial-gradient(120% 140% at 0% 0%, rgba(224, 81, 126, 0.55), transparent 55%),
+      radial-gradient(120% 160% at 100% 20%, rgba(123, 30, 58, 0.9), transparent 60%),
+      linear-gradient(140deg, #5a1230, #2a0a18 70%);
+    box-shadow: 0 24px 60px -30px rgba(168, 30, 79, 0.7);
+  }
+  .hero-card::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(60% 50% at 85% 100%, rgba(231,178,76,0.18), transparent 70%);
+    pointer-events: none;
+  }
+
+  /* Gold gradient accent surface (celebration, giving hero) */
+  .gold-card {
+    position: relative;
+    overflow: hidden;
+    border-radius: 1.5rem;
+    border: 1px solid rgba(231, 178, 76, 0.28);
+    background:
+      radial-gradient(120% 140% at 100% 0%, rgba(231, 178, 76, 0.28), transparent 55%),
+      linear-gradient(150deg, #241a10, #140d0a 75%);
+  }
+
+  /* ---- Text gradient ---- */
+  .text-gradient {
+    background: linear-gradient(100deg, #fff, var(--rose-2));
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+  }
+  .text-gold-gradient {
+    background: linear-gradient(100deg, var(--gold-2), var(--gold));
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+  }
+
+  /* ---- Buttons: gradient primary ---- */
+  .btn-grad {
+    background: linear-gradient(120deg, var(--burgundy-2), var(--rose));
+    color: #fff;
+    border: 1px solid rgba(255,255,255,0.14);
+    box-shadow: 0 10px 30px -12px rgba(224, 81, 126, 0.8);
+    transition: filter .25s ease, transform .12s ease, box-shadow .25s ease;
+  }
+  .btn-grad:hover { filter: brightness(1.08); box-shadow: 0 14px 36px -12px rgba(224, 81, 126, 0.95); }
+  .btn-grad:active { transform: scale(0.985); }
+
+  /* ---- Icon tiles ---- */
+  .tile {
+    display: grid;
+    place-items: center;
+    border-radius: 0.9rem;
+    background: var(--glass-2);
+    border: 1px solid var(--hair);
+    color: #fff;
+  }
+  .tile-rose { background: linear-gradient(140deg, rgba(224,81,126,0.9), rgba(123,30,58,0.9)); border-color: transparent; }
+  .tile-gold { background: linear-gradient(140deg, rgba(246,211,138,0.95), rgba(231,178,76,0.8)); border-color: transparent; color: #241a10; }
+
+  /* ---- Form fields ---- */
   .field {
     width: 100%;
     height: 3rem;
     padding: 0 0.9rem;
-    background: #000;
+    background: rgba(0, 0, 0, 0.35);
     color: #fff;
     border: 1px solid var(--hair-strong);
-    border-radius: 0.75rem;
+    border-radius: 0.85rem;
     font-size: 0.95rem;
-    transition: border-color .2s ease, background .2s ease;
+    transition: border-color .2s ease, background .2s ease, box-shadow .2s ease;
     -webkit-appearance: none;
     appearance: none;
   }
   .field::placeholder { color: var(--fg-mute); }
   .field:focus {
     outline: none;
-    border-color: var(--burgundy-2);
-    background: var(--surface);
+    border-color: var(--rose);
+    background: rgba(0, 0, 0, 0.5);
+    box-shadow: 0 0 0 3px rgba(224, 81, 126, 0.18);
   }
   textarea.field {
     height: auto;
@@ -176,7 +299,7 @@ body { overflow-x: hidden; }
     display: block;
   }
 
-  /* Small pill / chip */
+  /* ---- Chips ---- */
   .chip {
     display: inline-flex;
     align-items: center;
@@ -187,48 +310,76 @@ body { overflow-x: hidden; }
     font-size: 12px;
     border: 1px solid var(--hair-strong);
     color: var(--fg-dim);
+    background: var(--glass);
   }
   .chip-active {
-    background: var(--burgundy);
-    border-color: var(--burgundy);
+    background: linear-gradient(120deg, var(--burgundy-2), var(--rose));
+    border-color: transparent;
     color: #fff;
   }
+  .chip-gold {
+    background: linear-gradient(120deg, var(--gold), var(--gold-2));
+    border-color: transparent;
+    color: #241a10;
+  }
 
-  /* Glowing call-to-action (Sunday check-in) */
+  /* ---- Glow CTA ---- */
   .glow {
-    box-shadow: 0 0 0 0 rgba(168, 30, 79, 0.55);
-    animation: portal-glow 2.4s ease-in-out infinite;
+    box-shadow: 0 0 0 0 rgba(224, 81, 126, 0.55);
+    animation: portal-glow 2.6s ease-in-out infinite;
   }
 
-  /* Confidential note for welfare/private forms */
+  /* ---- Confidential note ---- */
   .confidential {
-    border-left: 2px solid var(--burgundy-2);
-    background: color-mix(in srgb, var(--burgundy) 12%, transparent);
-    border-radius: 0.5rem;
+    border-left: 2px solid var(--rose);
+    background: color-mix(in srgb, var(--burgundy) 16%, transparent);
+    border-radius: 0.6rem;
   }
 
-  /* Safe area for the fixed bottom tab bar */
+  /* ---- Divider ---- */
+  .divide-hair > * + * { border-top: 1px solid var(--hair); }
+
+  /* ---- Safe areas / layout helpers ---- */
   .pb-safe { padding-bottom: calc(env(safe-area-inset-bottom, 0px) + 0.5rem); }
   .bottom-safe { bottom: env(safe-area-inset-bottom, 0px); }
+  /* extra bottom padding for the mobile tab bar; removed on desktop */
   .content-pad-b { padding-bottom: calc(5.5rem + env(safe-area-inset-bottom, 0px)); }
+  @media (min-width: 1024px) {
+    .content-pad-b { padding-bottom: 3rem; }
+  }
+
+  .no-scrollbar::-webkit-scrollbar { display: none; }
+  .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
 }
 
 @keyframes portal-glow {
-  0%, 100% { box-shadow: 0 0 0 0 rgba(168, 30, 79, 0.50); }
-  50%      { box-shadow: 0 0 28px 4px rgba(168, 30, 79, 0.35); }
+  0%, 100% { box-shadow: 0 0 0 0 rgba(224, 81, 126, 0.45); }
+  50%      { box-shadow: 0 0 34px 6px rgba(224, 81, 126, 0.35); }
 }
+
+@keyframes float-slow {
+  0%, 100% { transform: translateY(0); }
+  50%      { transform: translateY(-8px); }
+}
+.animate-float { animation: float-slow 6s ease-in-out infinite; }
 
 @keyframes sheet-up {
   from { transform: translateY(100%); }
   to   { transform: translateY(0); }
 }
-.animate-sheet-up { animation: sheet-up .28s cubic-bezier(0.22, 1, 0.36, 1); }
+.animate-sheet-up { animation: sheet-up .3s cubic-bezier(0.22, 1, 0.36, 1); }
 
 @keyframes fade-in {
   from { opacity: 0; }
   to   { opacity: 1; }
 }
 .animate-fade-in { animation: fade-in .2s ease; }
+
+@keyframes rise-in {
+  from { opacity: 0; transform: translateY(10px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+.animate-rise { animation: rise-in .4s cubic-bezier(0.22, 1, 0.36, 1) both; }
 
 @keyframes toast-in {
   from { opacity: 0; transform: translate(-50%, 12px); }

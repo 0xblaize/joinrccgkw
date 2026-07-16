@@ -15,6 +15,7 @@ import {
   ShieldIcon,
   BriefcaseIcon,
   PinIcon,
+  ChevronRight,
 } from "../_components/icons";
 
 type Active =
@@ -71,61 +72,81 @@ export default function ConnectPage() {
         description="The lifeline between you and the church. Share, request prayer, or take your next step."
       />
 
-      {/* Testimonies & Prayer */}
-      <h2 className="eyebrow mb-3">Testimonies and Prayer</h2>
-      <div className="space-y-2.5 mb-7">
-        <ActionCard
-          icon={<StarIcon width={20} height={20} />}
-          title="Share a Testimony"
-          description="Tell the family what God has done."
-          onClick={() => setActive("testimony")}
-        />
-        <ActionCard
-          icon={<PrayIcon width={20} height={20} />}
-          title="Prayer Request"
-          description="Send a prayer point to the intercessory team."
-          onClick={() => setActive("prayer")}
-        />
-      </div>
+      <div className="grid lg:grid-cols-2 gap-x-8 gap-y-7">
+        {/* Testimonies & Prayer */}
+        <section>
+          <h2 className="eyebrow mb-3">Testimonies and Prayer</h2>
+          <div className="space-y-2.5">
+            <ActionCard
+              icon={<StarIcon width={20} height={20} />}
+              title="Share a Testimony"
+              description="Tell the family what God has done."
+              onClick={() => setActive("testimony")}
+            />
+            <ActionCard
+              icon={<PrayIcon width={20} height={20} />}
+              title="Prayer Request"
+              description="Send a prayer point to the intercessory team."
+              onClick={() => setActive("prayer")}
+            />
+          </div>
+        </section>
 
-      {/* Pastoral care */}
-      <h2 className="eyebrow mb-3">Pastoral Care and Meetings</h2>
-      <div className="space-y-2.5 mb-7">
-        <ActionCard
-          icon={<CalendarChatIcon width={20} height={20} />}
-          title="Book a Pastoral Meeting"
-          description="Counseling, marital advice, or a general meeting."
-          onClick={() => setActive("pastoral")}
-        />
-      </div>
+        {/* Pastoral care */}
+        <section>
+          <h2 className="eyebrow mb-3">Pastoral Care and Meetings</h2>
+          <div className="space-y-2.5">
+            <ActionCard
+              icon={<CalendarChatIcon width={20} height={20} />}
+              title="Book a Pastoral Meeting"
+              description="Counseling, marital advice, or a general meeting."
+              onClick={() => setActive("pastoral")}
+            />
+          </div>
+        </section>
 
-      {/* Welfare */}
-      <h2 className="eyebrow mb-3">Welfare and Support</h2>
-      <div className="space-y-2.5 mb-7">
-        <ActionCard
-          icon={<ShieldIcon width={20} height={20} />}
-          title="Welfare Request"
-          description="Confidential help: finance, food bank, hospital visit."
-          onClick={() => setActive("welfare")}
-          tone="confidential"
-        />
-      </div>
+        {/* Welfare — featured confidential card */}
+        <section>
+          <h2 className="eyebrow mb-3">Welfare and Support</h2>
+          <button
+            onClick={() => setActive("welfare")}
+            className="gold-card w-full text-left p-5 flex items-center gap-4 group"
+          >
+            <span className="tile tile-gold w-12 h-12 shrink-0">
+              <ShieldIcon width={24} height={24} />
+            </span>
+            <span className="flex-1">
+              <span className="block font-display text-lg">Welfare Request</span>
+              <span className="block text-xs text-white/60 mt-0.5">
+                Confidential help: finance, food bank, hospital visit.
+              </span>
+            </span>
+            <ChevronRight
+              width={20}
+              height={20}
+              className="text-white/40 group-hover:translate-x-1 transition-transform"
+            />
+          </button>
+        </section>
 
-      {/* Next steps */}
-      <h2 className="eyebrow mb-3">Next Steps</h2>
-      <div className="space-y-2.5">
-        <ActionCard
-          icon={<BriefcaseIcon width={20} height={20} />}
-          title="Join a Workforce"
-          description="Serve in Choir, Media, Ushers, Kings Kids and more."
-          onClick={() => setActive("workforce")}
-        />
-        <ActionCard
-          icon={<PinIcon width={20} height={20} />}
-          title="Find a Life Group"
-          description="Mid-week house fellowships near you."
-          onClick={() => setActive("lifegroup")}
-        />
+        {/* Next steps */}
+        <section>
+          <h2 className="eyebrow mb-3">Next Steps</h2>
+          <div className="space-y-2.5">
+            <ActionCard
+              icon={<BriefcaseIcon width={20} height={20} />}
+              title="Join a Workforce"
+              description="Serve in Choir, Media, Ushers, Kings Kids and more."
+              onClick={() => setActive("workforce")}
+            />
+            <ActionCard
+              icon={<PinIcon width={20} height={20} />}
+              title="Find a Life Group"
+              description="Mid-week house fellowships near you."
+              onClick={() => setActive("lifegroup")}
+            />
+          </div>
+        </section>
       </div>
 
       {/* ---------------- Testimony ---------------- */}
@@ -173,7 +194,7 @@ export default function ConnectPage() {
                   : "Testimony received privately. Amen!"
               )
             }
-            className="btn-primary w-full h-12 rounded-full text-sm font-medium disabled:opacity-50"
+            className="btn-grad w-full h-12 rounded-full text-sm font-medium disabled:opacity-50"
           >
             Submit Testimony
           </button>
@@ -217,7 +238,7 @@ export default function ConnectPage() {
                 "Prayer request sent. We are praying with you."
               )
             }
-            className="btn-primary w-full h-12 rounded-full text-sm font-medium disabled:opacity-50"
+            className="btn-grad w-full h-12 rounded-full text-sm font-medium disabled:opacity-50"
           >
             Send Prayer Request
           </button>
@@ -280,7 +301,7 @@ export default function ConnectPage() {
                 "Meeting request sent. A pastor will reach out to you."
               )
             }
-            className="btn-primary w-full h-12 rounded-full text-sm font-medium disabled:opacity-50"
+            className="btn-grad w-full h-12 rounded-full text-sm font-medium disabled:opacity-50"
           >
             Request Meeting
           </button>
@@ -346,7 +367,7 @@ export default function ConnectPage() {
                 "Welfare request sent privately. The team will contact you."
               )
             }
-            className="btn-primary w-full h-12 rounded-full text-sm font-medium disabled:opacity-50"
+            className="btn-grad w-full h-12 rounded-full text-sm font-medium disabled:opacity-50"
           >
             Send Confidential Request
           </button>
@@ -394,7 +415,7 @@ export default function ConnectPage() {
                 `Application sent to ${chosen?.name}. Welcome aboard!`
               );
             }}
-            className="btn-primary w-full h-12 rounded-full text-sm font-medium disabled:opacity-50 mt-1"
+            className="btn-grad w-full h-12 rounded-full text-sm font-medium disabled:opacity-50 mt-1"
           >
             Apply to Serve
           </button>
@@ -441,7 +462,7 @@ export default function ConnectPage() {
                 `Request sent to ${chosen?.name}. They will welcome you soon.`
               );
             }}
-            className="btn-primary w-full h-12 rounded-full text-sm font-medium disabled:opacity-50 mt-1"
+            className="btn-grad w-full h-12 rounded-full text-sm font-medium disabled:opacity-50 mt-1"
           >
             Request to Join
           </button>

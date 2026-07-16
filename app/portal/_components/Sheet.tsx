@@ -43,9 +43,9 @@ export default function Sheet({
         role="dialog"
         aria-modal="true"
         aria-label={title}
-        className="relative w-full sm:max-w-lg max-h-[92vh] overflow-y-auto surface-2 rounded-t-3xl sm:rounded-3xl animate-sheet-up"
+        className="relative w-full sm:max-w-lg max-h-[92vh] overflow-y-auto no-scrollbar surface-2 rounded-t-3xl sm:rounded-3xl animate-sheet-up border-t border-[color:var(--rose)]/20 sm:border sm:border-[color:var(--hair-strong)] shadow-[0_-20px_60px_-20px_rgba(0,0,0,0.9)]"
       >
-        <div className="sticky top-0 z-10 bg-[color:var(--surface-2)] px-5 pt-4 pb-3 flex items-start justify-between gap-4 rounded-t-3xl">
+        <div className="sticky top-0 z-10 bg-[color:var(--surface-2)]/95 backdrop-blur px-5 pt-4 pb-3 flex items-start justify-between gap-4 rounded-t-3xl">
           <div className="min-w-0">
             <div className="mx-auto sm:hidden w-10 h-1 rounded-full bg-white/15 mb-3" />
             <h2 className="font-display text-xl leading-tight">{title}</h2>

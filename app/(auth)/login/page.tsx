@@ -92,12 +92,13 @@ export default function LoginPage() {
   const dayCount = month ? daysInMonth(Number(month)) : 31;
 
   return (
-    <main className="min-h-screen bg-black flex flex-col">
+    <main className="relative min-h-screen flex flex-col">
+      <div className="portal-ambient" />
       {/* Top bar */}
-      <header className="px-5 sm:px-8 h-16 flex items-center justify-between">
+      <header className="relative z-10 px-5 sm:px-8 h-16 flex items-center justify-between">
         <Link
           href="/"
-          className="font-display font-bold text-2xl tracking-wider text-white"
+          className="tile tile-rose w-10 h-10 font-display font-bold text-lg tracking-wider"
           aria-label="Kings World home"
         >
           KW
@@ -110,8 +111,8 @@ export default function LoginPage() {
         </Link>
       </header>
 
-      <div className="flex-1 flex items-center justify-center px-5 py-10">
-        <div className="w-full max-w-md">
+      <div className="relative z-10 flex-1 flex items-center justify-center px-5 py-10">
+        <div className="w-full max-w-md animate-rise">
           <div className="text-center mb-8">
             <div className="eyebrow-burgundy mb-3">Member Portal</div>
             <h1 className="font-display font-semibold text-3xl sm:text-4xl leading-tight">
@@ -125,13 +126,13 @@ export default function LoginPage() {
           </div>
 
           {/* Mode toggle */}
-          <div className="surface-2 p-1 rounded-full grid grid-cols-2 mb-6">
+          <div className="glass p-1 rounded-full grid grid-cols-2 mb-6">
             <button
               type="button"
               onClick={() => switchMode("login")}
-              className={`h-11 rounded-full text-sm font-medium transition-colors ${
+              className={`h-11 rounded-full text-sm font-medium transition-all ${
                 mode === "login"
-                  ? "btn-primary"
+                  ? "btn-grad"
                   : "text-white/60 hover:text-white"
               }`}
             >
@@ -140,9 +141,9 @@ export default function LoginPage() {
             <button
               type="button"
               onClick={() => switchMode("signup")}
-              className={`h-11 rounded-full text-sm font-medium transition-colors ${
+              className={`h-11 rounded-full text-sm font-medium transition-all ${
                 mode === "signup"
-                  ? "btn-primary"
+                  ? "btn-grad"
                   : "text-white/60 hover:text-white"
               }`}
             >
@@ -150,7 +151,7 @@ export default function LoginPage() {
             </button>
           </div>
 
-          <form onSubmit={onSubmit} className="surface p-6 space-y-4">
+          <form onSubmit={onSubmit} className="glass p-6 space-y-4">
             {mode === "signup" && (
               <div className="grid grid-cols-2 gap-3">
                 <label className="block">
@@ -252,7 +253,7 @@ export default function LoginPage() {
             <button
               type="submit"
               disabled={busy}
-              className="btn-primary w-full h-12 rounded-full text-sm font-medium disabled:opacity-60"
+              className="btn-grad w-full h-12 rounded-full text-sm font-medium disabled:opacity-60"
             >
               {mode === "login" ? "Sign In" : "Create Account"}
             </button>
