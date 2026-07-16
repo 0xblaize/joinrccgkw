@@ -9,6 +9,9 @@
   --burgundy-2: #a81e4f;
   --hair: rgba(255, 255, 255, 0.10);
   --hair-strong: rgba(255, 255, 255, 0.22);
+  /* Portal surfaces (slightly lifted off pure black for readable panels) */
+  --surface: #0a0708;
+  --surface-2: #120a0e;
 }
 
 @theme inline {
@@ -104,6 +107,134 @@ body { overflow-x: hidden; }
 
   .tabular { font-variant-numeric: tabular-nums; }
 }
+
+/* ---------------------------------------------------------------- */
+/* Member Portal utilities (same tokens, no new colors)             */
+/* ---------------------------------------------------------------- */
+@layer utilities {
+  /* Lifted panel for the light-on-dark portal cards */
+  .surface {
+    background: var(--surface);
+    border: 1px solid var(--hair);
+    border-radius: 1rem;
+  }
+  .surface-2 {
+    background: var(--surface-2);
+    border: 1px solid var(--hair);
+    border-radius: 1rem;
+  }
+
+  /* Pressable version of the landing card */
+  .card-tap {
+    background: var(--surface);
+    border: 1px solid var(--hair);
+    border-radius: 1rem;
+    transition: border-color .25s ease, background .25s ease, transform .12s ease;
+  }
+  .card-tap:hover { border-color: var(--hair-strong); background: var(--surface-2); }
+  .card-tap:active { transform: scale(0.99); }
+
+  /* Form fields */
+  .field {
+    width: 100%;
+    height: 3rem;
+    padding: 0 0.9rem;
+    background: #000;
+    color: #fff;
+    border: 1px solid var(--hair-strong);
+    border-radius: 0.75rem;
+    font-size: 0.95rem;
+    transition: border-color .2s ease, background .2s ease;
+    -webkit-appearance: none;
+    appearance: none;
+  }
+  .field::placeholder { color: var(--fg-mute); }
+  .field:focus {
+    outline: none;
+    border-color: var(--burgundy-2);
+    background: var(--surface);
+  }
+  textarea.field {
+    height: auto;
+    min-height: 7rem;
+    padding: 0.75rem 0.9rem;
+    line-height: 1.5;
+    resize: vertical;
+  }
+  select.field {
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8' fill='none'%3E%3Cpath d='M1 1.5L6 6.5L11 1.5' stroke='%23a3a3a3' stroke-width='1.5' stroke-linecap='round'/%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: right 0.9rem center;
+    padding-right: 2.4rem;
+  }
+
+  .label {
+    font-size: 12px;
+    letter-spacing: 0.02em;
+    color: var(--fg-dim);
+    margin-bottom: 0.4rem;
+    display: block;
+  }
+
+  /* Small pill / chip */
+  .chip {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.35rem;
+    height: 1.75rem;
+    padding: 0 0.7rem;
+    border-radius: 999px;
+    font-size: 12px;
+    border: 1px solid var(--hair-strong);
+    color: var(--fg-dim);
+  }
+  .chip-active {
+    background: var(--burgundy);
+    border-color: var(--burgundy);
+    color: #fff;
+  }
+
+  /* Glowing call-to-action (Sunday check-in) */
+  .glow {
+    box-shadow: 0 0 0 0 rgba(168, 30, 79, 0.55);
+    animation: portal-glow 2.4s ease-in-out infinite;
+  }
+
+  /* Confidential note for welfare/private forms */
+  .confidential {
+    border-left: 2px solid var(--burgundy-2);
+    background: color-mix(in srgb, var(--burgundy) 12%, transparent);
+    border-radius: 0.5rem;
+  }
+
+  /* Safe area for the fixed bottom tab bar */
+  .pb-safe { padding-bottom: calc(env(safe-area-inset-bottom, 0px) + 0.5rem); }
+  .bottom-safe { bottom: env(safe-area-inset-bottom, 0px); }
+  .content-pad-b { padding-bottom: calc(5.5rem + env(safe-area-inset-bottom, 0px)); }
+}
+
+@keyframes portal-glow {
+  0%, 100% { box-shadow: 0 0 0 0 rgba(168, 30, 79, 0.50); }
+  50%      { box-shadow: 0 0 28px 4px rgba(168, 30, 79, 0.35); }
+}
+
+@keyframes sheet-up {
+  from { transform: translateY(100%); }
+  to   { transform: translateY(0); }
+}
+.animate-sheet-up { animation: sheet-up .28s cubic-bezier(0.22, 1, 0.36, 1); }
+
+@keyframes fade-in {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+.animate-fade-in { animation: fade-in .2s ease; }
+
+@keyframes toast-in {
+  from { opacity: 0; transform: translate(-50%, 12px); }
+  to   { opacity: 1; transform: translate(-50%, 0); }
+}
+.animate-toast-in { animation: toast-in .25s ease; }
 
 @keyframes mouse-scroll {
   0%   { transform: translate(-50%, 0);   opacity: 0; }

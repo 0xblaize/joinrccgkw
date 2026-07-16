@@ -11,10 +11,10 @@ const quickLinks = [
 ];
 
 const memberLinks = [
-  { label: "Join Us", href: "#join" },
-  { label: "Create Account", href: "#signup" },
-  { label: "Sunday Check In", href: "#checkin" },
-  { label: "Birthdays", href: "#birthdays" },
+  { label: "Join Us", href: "/login" },
+  { label: "Create Account", href: "/login" },
+  { label: "Sunday Check In", href: "/portal" },
+  { label: "Birthdays", href: "/portal/me" },
 ];
 
 export default function Footer() {

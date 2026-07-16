@@ -38,13 +38,13 @@ export default function Give() {
 
               <div className="mt-6 flex flex-col sm:flex-row gap-3">
                 <a
-                  href="#give-online"
+                  href="/portal/give"
                   className="flex-1 h-12 grid place-items-center rounded-full btn-primary text-sm font-medium"
                 >
                   Give Online
                 </a>
                 <a
-                  href="#give-transfer"
+                  href="/portal/give"
                   className="flex-1 h-12 grid place-items-center rounded-full btn-ghost text-sm font-medium"
                 >
                   Bank Transfer

@@ -66,7 +66,7 @@ export default function Hero() {
 
           <div className="mt-8 flex flex-wrap gap-3">
             <a
-              href="#join"
+              href="/login"
               className="inline-flex items-center gap-2 h-12 px-6 rounded-full btn-primary text-sm font-medium"
             >
               Plan a Visit

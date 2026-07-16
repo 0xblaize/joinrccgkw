@@ -56,7 +56,7 @@ export default function Nav() {
 
             <div className="flex items-center gap-2">
               <a
-                href="#join"
+                href="/login"
                 className="hidden sm:inline-flex items-center h-10 px-5 rounded-full btn-primary text-sm font-medium"
               >
                 Join Us
@@ -110,7 +110,7 @@ export default function Nav() {
             ))}
           </nav>
           <a
-            href="#join"
+            href="/login"
             onClick={() => setOpen(false)}
             className="h-12 grid place-items-center rounded-full btn-primary text-sm font-medium"
           >
