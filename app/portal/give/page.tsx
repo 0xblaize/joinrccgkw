@@ -122,14 +122,14 @@ export default function GivePage() {
                   onClick={() => setCatId(c.id)}
                   className={`text-left p-4 rounded-2xl border transition-all ${
                     selected
-                      ? "border-transparent bg-gradient-to-br from-[color:var(--burgundy-2)]/40 to-[color:var(--burgundy)]/10 shadow-[0_10px_30px_-15px_rgba(224,81,126,0.8)]"
+                      ? "border-[color:var(--burgundy-2)] bg-white/[0.03]"
                       : "border-[color:var(--hair)] bg-white/[0.02] hover:border-[color:var(--hair-strong)]"
                   }`}
                 >
                   <div className="flex items-center justify-between">
                     <span className="text-sm font-medium">{c.name}</span>
                     {selected && (
-                      <span className="grid place-items-center w-5 h-5 rounded-full bg-white text-[#5a1230]">
+                      <span className="grid place-items-center w-5 h-5 rounded-full bg-[color:var(--burgundy)] text-white">
                         <CheckIcon width={13} height={13} />
                       </span>
                     )}

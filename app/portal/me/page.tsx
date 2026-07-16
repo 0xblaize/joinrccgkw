@@ -174,7 +174,7 @@ function SettingRow({
       <span
         className={`shrink-0 relative w-11 h-6 rounded-full transition-colors ${
           on
-            ? "bg-gradient-to-r from-[color:var(--burgundy-2)] to-[color:var(--rose)]"
+            ? "bg-[color:var(--burgundy)]"
             : "bg-white/15"
         }`}
       >

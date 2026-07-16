@@ -46,12 +46,12 @@ export default function Sidebar() {
                 href={item.href}
                 className={`relative flex items-center gap-3 h-11 px-3 rounded-xl text-sm transition-colors ${
                   active
-                    ? "text-white bg-gradient-to-r from-[color:var(--burgundy-2)]/25 to-transparent border border-[color:var(--rose)]/25"
+                    ? "text-white bg-white/[0.05] border border-[color:var(--hair)]"
                     : "text-white/55 hover:text-white hover:bg-white/[0.05]"
                 }`}
               >
                 {active && (
-                  <span className="absolute left-0 top-1/2 -translate-y-1/2 h-6 w-1 rounded-full bg-gradient-to-b from-[color:var(--rose-2)] to-[color:var(--burgundy-2)]" />
+                  <span className="absolute left-0 top-1/2 -translate-y-1/2 h-6 w-1 rounded-full bg-[color:var(--burgundy-2)]" />
                 )}
                 <Icon width={20} height={20} />
                 {item.label}

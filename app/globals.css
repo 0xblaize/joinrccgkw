@@ -9,19 +9,18 @@
   --burgundy-2: #a81e4f;
   --hair: rgba(255, 255, 255, 0.10);
   --hair-strong: rgba(255, 255, 255, 0.22);
-  /* Portal: layered dark surfaces (not flat black) for real depth */
-  --surface: #100b0e;
-  --surface-2: #171014;
-  --surface-3: #1e1519;
-  /* Vibrant brand gradient stops (burgundy -> rose) */
-  --rose: #e0517e;
-  --rose-2: #ff7aa8;
-  /* Warm gold secondary accent for celebration / giving highlights */
-  --gold: #e7b24c;
-  --gold-2: #f6d38a;
-  /* Glass fills */
-  --glass: rgba(255, 255, 255, 0.045);
-  --glass-2: rgba(255, 255, 255, 0.07);
+  /* Portal: flat, near-black surfaces. Minimal, calm. */
+  --surface: #0a0a0a;
+  --surface-2: #0f0f0f;
+  --surface-3: #141414;
+  /* Legacy accent aliases kept pointing at the single burgundy accent so
+     older class names resolve without reintroducing gradients. */
+  --rose: var(--burgundy-2);
+  --rose-2: var(--burgundy-2);
+  --gold: var(--burgundy-2);
+  --gold-2: var(--burgundy-2);
+  --glass: rgba(255, 255, 255, 0.02);
+  --glass-2: rgba(255, 255, 255, 0.05);
 }
 
 @theme inline {
@@ -123,159 +122,125 @@ body { overflow-x: hidden; }
 }
 
 /* ---------------------------------------------------------------- */
-/* Member Portal — layered, glassy, gradient-lit design system       */
+/* Member Portal — clean, minimal: flat black, hairlines, 1 accent    */
 /* ---------------------------------------------------------------- */
 @layer utilities {
-  /* Ambient gradient orbs behind the whole portal so glass has something
-     to refract. Sits in a fixed layer at z-0. */
+  /* No ambient orbs — just a flat black backdrop. */
   .portal-ambient {
     position: fixed;
     inset: 0;
     z-index: 0;
     pointer-events: none;
-    overflow: hidden;
-    background:
-      radial-gradient(60rem 40rem at 8% -10%, rgba(168, 30, 79, 0.30), transparent 60%),
-      radial-gradient(50rem 40rem at 100% 0%, rgba(224, 81, 126, 0.16), transparent 55%),
-      radial-gradient(60rem 50rem at 50% 120%, rgba(231, 178, 76, 0.10), transparent 60%),
-      #08060a;
-  }
-  .portal-ambient::after {
-    /* faint film grain / vignette to kill banding */
-    content: "";
-    position: absolute;
-    inset: 0;
-    background: radial-gradient(120% 120% at 50% 0%, transparent 55%, rgba(0,0,0,0.55) 100%);
+    background: #000;
   }
 
-  /* ---- Surfaces & glass ---- */
+  /* ---- Surfaces (flat, hairline-bordered) ---- */
   .surface {
-    background: linear-gradient(180deg, var(--surface-2), var(--surface));
+    background: var(--surface);
     border: 1px solid var(--hair);
-    border-radius: 1.25rem;
+    border-radius: 1rem;
   }
   .surface-2 {
     background: var(--surface-2);
     border: 1px solid var(--hair);
-    border-radius: 1.25rem;
+    border-radius: 1rem;
   }
 
-  /* Frosted glass panel */
+  /* Glass -> flat card (no blur) */
   .glass {
-    background: var(--glass);
-    backdrop-filter: blur(16px) saturate(1.3);
-    -webkit-backdrop-filter: blur(16px) saturate(1.3);
+    background: var(--surface);
     border: 1px solid var(--hair);
-    border-radius: 1.25rem;
-    box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.06);
+    border-radius: 1rem;
   }
 
-  /* Pressable glass card */
+  /* Pressable card */
   .card-tap {
-    background: var(--glass);
-    backdrop-filter: blur(14px) saturate(1.25);
-    -webkit-backdrop-filter: blur(14px) saturate(1.25);
+    background: var(--surface);
     border: 1px solid var(--hair);
-    border-radius: 1.25rem;
-    box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.05);
-    transition: border-color .25s ease, background .25s ease,
-                transform .12s ease, box-shadow .25s ease;
+    border-radius: 1rem;
+    transition: border-color .25s ease, background .25s ease, transform .12s ease;
   }
   .card-tap:hover {
     border-color: var(--hair-strong);
-    background: var(--glass-2);
-    box-shadow: inset 0 1px 0 rgba(255,255,255,0.08), 0 8px 30px -12px rgba(0,0,0,0.7);
+    background: var(--surface-2);
   }
-  .card-tap:active { transform: scale(0.985); }
+  .card-tap:active { transform: scale(0.99); }
 
-  /* Gradient hero card (the vibrant centerpiece) */
+  /* Hero / gold cards -> plain dark cards with a single accent hairline.
+     No gradients, no glow. */
   .hero-card {
     position: relative;
     overflow: hidden;
-    border-radius: 1.5rem;
-    border: 1px solid rgba(255, 255, 255, 0.12);
-    background:
-      radial-gradient(120% 140% at 0% 0%, rgba(224, 81, 126, 0.55), transparent 55%),
-      radial-gradient(120% 160% at 100% 20%, rgba(123, 30, 58, 0.9), transparent 60%),
-      linear-gradient(140deg, #5a1230, #2a0a18 70%);
-    box-shadow: 0 24px 60px -30px rgba(168, 30, 79, 0.7);
+    border-radius: 1rem;
+    border: 1px solid var(--hair);
+    background: var(--surface);
   }
-  .hero-card::before {
-    content: "";
-    position: absolute;
-    inset: 0;
-    background: radial-gradient(60% 50% at 85% 100%, rgba(231,178,76,0.18), transparent 70%);
-    pointer-events: none;
-  }
+  .hero-card::before { content: none; }
 
-  /* Gold gradient accent surface (celebration, giving hero) */
   .gold-card {
     position: relative;
     overflow: hidden;
-    border-radius: 1.5rem;
-    border: 1px solid rgba(231, 178, 76, 0.28);
-    background:
-      radial-gradient(120% 140% at 100% 0%, rgba(231, 178, 76, 0.28), transparent 55%),
-      linear-gradient(150deg, #241a10, #140d0a 75%);
+    border-radius: 1rem;
+    border: 1px solid var(--hair);
+    background: var(--surface);
   }
 
-  /* ---- Text gradient ---- */
+  /* ---- Text: no gradients, just the accent tint ---- */
   .text-gradient {
-    background: linear-gradient(100deg, #fff, var(--rose-2));
-    -webkit-background-clip: text;
-    background-clip: text;
-    color: transparent;
+    color: color-mix(in srgb, var(--burgundy-2) 55%, white 45%);
   }
   .text-gold-gradient {
-    background: linear-gradient(100deg, var(--gold-2), var(--gold));
-    -webkit-background-clip: text;
-    background-clip: text;
-    color: transparent;
+    color: color-mix(in srgb, var(--burgundy-2) 55%, white 45%);
   }
 
-  /* ---- Buttons: gradient primary ---- */
+  /* ---- Buttons: solid burgundy ---- */
   .btn-grad {
-    background: linear-gradient(120deg, var(--burgundy-2), var(--rose));
+    background: var(--burgundy);
     color: #fff;
-    border: 1px solid rgba(255,255,255,0.14);
-    box-shadow: 0 10px 30px -12px rgba(224, 81, 126, 0.8);
-    transition: filter .25s ease, transform .12s ease, box-shadow .25s ease;
+    border: 1px solid transparent;
+    transition: background .25s ease, transform .12s ease;
   }
-  .btn-grad:hover { filter: brightness(1.08); box-shadow: 0 14px 36px -12px rgba(224, 81, 126, 0.95); }
-  .btn-grad:active { transform: scale(0.985); }
+  .btn-grad:hover { background: var(--burgundy-2); }
+  .btn-grad:active { transform: scale(0.99); }
 
-  /* ---- Icon tiles ---- */
+  /* ---- Icon tiles: flat, hairline ---- */
   .tile {
     display: grid;
     place-items: center;
-    border-radius: 0.9rem;
-    background: var(--glass-2);
+    border-radius: 0.75rem;
+    background: var(--surface-2);
     border: 1px solid var(--hair);
     color: #fff;
   }
-  .tile-rose { background: linear-gradient(140deg, rgba(224,81,126,0.9), rgba(123,30,58,0.9)); border-color: transparent; }
-  .tile-gold { background: linear-gradient(140deg, rgba(246,211,138,0.95), rgba(231,178,76,0.8)); border-color: transparent; color: #241a10; }
+  .tile-rose {
+    background: var(--surface-2);
+    border: 1px solid var(--hair);
+    color: var(--burgundy-2);
+  }
+  .tile-gold {
+    background: var(--surface-2);
+    border: 1px solid var(--hair);
+    color: var(--burgundy-2);
+  }
 
   /* ---- Form fields ---- */
   .field {
     width: 100%;
     height: 3rem;
     padding: 0 0.9rem;
-    background: rgba(0, 0, 0, 0.35);
+    background: #000;
     color: #fff;
     border: 1px solid var(--hair-strong);
-    border-radius: 0.85rem;
+    border-radius: 0.7rem;
     font-size: 0.95rem;
-    transition: border-color .2s ease, background .2s ease, box-shadow .2s ease;
+    transition: border-color .2s ease;
     -webkit-appearance: none;
     appearance: none;
   }
   .field::placeholder { color: var(--fg-mute); }
   .field:focus {
     outline: none;
-    border-color: var(--rose);
-    background: rgba(0, 0, 0, 0.5);
-    box-shadow: 0 0 0 3px rgba(224, 81, 126, 0.18);
+    border-color: var(--burgundy-2);
   }
   textarea.field {
     height: auto;
@@ -310,30 +275,30 @@ body { overflow-x: hidden; }
     font-size: 12px;
     border: 1px solid var(--hair-strong);
     color: var(--fg-dim);
-    background: var(--glass);
+    background: transparent;
   }
   .chip-active {
-    background: linear-gradient(120deg, var(--burgundy-2), var(--rose));
+    background: var(--burgundy);
     border-color: transparent;
     color: #fff;
   }
   .chip-gold {
-    background: linear-gradient(120deg, var(--gold), var(--gold-2));
-    border-color: transparent;
-    color: #241a10;
+    background: transparent;
+    border-color: var(--hair-strong);
+    color: var(--fg-dim);
   }
 
-  /* ---- Glow CTA ---- */
+  /* ---- Glow CTA -> subtle pulse only ---- */
   .glow {
-    box-shadow: 0 0 0 0 rgba(224, 81, 126, 0.55);
+    box-shadow: 0 0 0 0 rgba(168, 30, 79, 0.5);
     animation: portal-glow 2.6s ease-in-out infinite;
   }
 
   /* ---- Confidential note ---- */
   .confidential {
-    border-left: 2px solid var(--rose);
-    background: color-mix(in srgb, var(--burgundy) 16%, transparent);
-    border-radius: 0.6rem;
+    border-left: 2px solid var(--burgundy-2);
+    background: rgba(255, 255, 255, 0.02);
+    border-radius: 0.5rem;
   }
 
   /* ---- Divider ---- */
@@ -342,7 +307,6 @@ body { overflow-x: hidden; }
   /* ---- Safe areas / layout helpers ---- */
   .pb-safe { padding-bottom: calc(env(safe-area-inset-bottom, 0px) + 0.5rem); }
   .bottom-safe { bottom: env(safe-area-inset-bottom, 0px); }
-  /* extra bottom padding for the mobile tab bar; removed on desktop */
   .content-pad-b { padding-bottom: calc(5.5rem + env(safe-area-inset-bottom, 0px)); }
   @media (min-width: 1024px) {
     .content-pad-b { padding-bottom: 3rem; }
@@ -353,8 +317,8 @@ body { overflow-x: hidden; }
 }
 
 @keyframes portal-glow {
-  0%, 100% { box-shadow: 0 0 0 0 rgba(224, 81, 126, 0.45); }
-  50%      { box-shadow: 0 0 34px 6px rgba(224, 81, 126, 0.35); }
+  0%, 100% { box-shadow: 0 0 0 0 rgba(168, 30, 79, 0.4); }
+  50%      { box-shadow: 0 0 22px 3px rgba(168, 30, 79, 0.28); }
 }
 
 @keyframes float-slow {

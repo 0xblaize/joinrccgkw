@@ -10,7 +10,7 @@ export default function TabBar() {
   return (
     <nav className="lg:hidden fixed inset-x-0 bottom-0 z-50 pb-safe">
       <div className="mx-auto max-w-md px-3">
-        <div className="glass rounded-2xl grid grid-cols-4 px-1 py-1 shadow-[0_-8px_30px_-12px_rgba(0,0,0,0.8)]">
+        <div className="surface-2 rounded-2xl grid grid-cols-4 px-1 py-1">
           {NAV_ITEMS.map((item) => {
             const active = isNavActive(pathname, item);
             const { Icon } = item;
@@ -21,7 +21,7 @@ export default function TabBar() {
                 className="group relative flex flex-col items-center justify-center gap-1 py-2 rounded-xl"
               >
                 {active && (
-                  <span className="absolute inset-1 rounded-xl bg-gradient-to-b from-[color:var(--burgundy-2)]/30 to-transparent border border-[color:var(--rose)]/30" />
+                  <span className="absolute inset-1 rounded-xl bg-white/[0.05] border border-[color:var(--hair)]" />
                 )}
                 <Icon
                   width={22}

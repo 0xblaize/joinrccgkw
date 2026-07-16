@@ -96,7 +96,7 @@ export default function HomePage() {
                 ) : (
                   <button
                     onClick={() => setCheckInOpen(true)}
-                    className="glow inline-flex items-center justify-center gap-2 h-14 px-7 rounded-2xl bg-white text-[#5a1230] text-base font-semibold hover:brightness-105 transition"
+                    className="btn-grad glow inline-flex items-center justify-center gap-2 h-14 px-7 rounded-2xl text-base font-semibold transition"
                   >
                     <SparkIcon width={20} height={20} />
                     Sign Attendance
@@ -218,7 +218,7 @@ export default function HomePage() {
                 key={ev.id}
                 className="flex items-center gap-3 rounded-xl bg-white/[0.03] border border-[color:var(--hair)] p-3"
               >
-                <span className="grid place-items-center w-11 h-11 rounded-xl bg-gradient-to-b from-[color:var(--burgundy-2)]/30 to-transparent border border-[color:var(--rose)]/20 shrink-0">
+                <span className="tile tile-rose w-11 h-11 shrink-0">
                   <CalendarIcon width={18} height={18} className="text-white/80" />
                 </span>
                 <div className="min-w-0">
