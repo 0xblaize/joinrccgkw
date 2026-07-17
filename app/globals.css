@@ -166,31 +166,41 @@ body { overflow-x: hidden; }
   }
   .card-tap:active { transform: scale(0.99); }
 
-  /* Hero / gold cards -> plain dark cards with a single accent hairline.
-     No gradients, no glow. */
+  /* Hero / featured cards -> BOLD solid burgundy. This is the attention
+     grabber. No gradients — just a rich, confident color block. */
   .hero-card {
     position: relative;
     overflow: hidden;
-    border-radius: 1rem;
-    border: 1px solid var(--hair);
-    background: var(--surface);
+    border-radius: 1.25rem;
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    background: var(--burgundy);
+    color: #fff;
   }
   .hero-card::before { content: none; }
+
+  /* Burgundy-tinted dark card for featured-but-secondary blocks */
+  .accent-card {
+    position: relative;
+    overflow: hidden;
+    border-radius: 1.25rem;
+    border: 1px solid color-mix(in srgb, var(--burgundy) 55%, transparent);
+    background: color-mix(in srgb, var(--burgundy) 22%, #0a0a0a);
+  }
 
   .gold-card {
     position: relative;
     overflow: hidden;
-    border-radius: 1rem;
-    border: 1px solid var(--hair);
-    background: var(--surface);
+    border-radius: 1.25rem;
+    border: 1px solid color-mix(in srgb, var(--burgundy) 45%, transparent);
+    background: color-mix(in srgb, var(--burgundy) 16%, #0a0a0a);
   }
 
-  /* ---- Text: no gradients, just the accent tint ---- */
+  /* ---- Text accents ---- */
   .text-gradient {
-    color: color-mix(in srgb, var(--burgundy-2) 55%, white 45%);
+    color: color-mix(in srgb, var(--burgundy-2) 45%, white 55%);
   }
   .text-gold-gradient {
-    color: color-mix(in srgb, var(--burgundy-2) 55%, white 45%);
+    color: color-mix(in srgb, var(--burgundy-2) 45%, white 55%);
   }
 
   /* ---- Buttons: solid burgundy ---- */
@@ -203,7 +213,7 @@ body { overflow-x: hidden; }
   .btn-grad:hover { background: var(--burgundy-2); }
   .btn-grad:active { transform: scale(0.99); }
 
-  /* ---- Icon tiles: flat, hairline ---- */
+  /* ---- Icon tiles: solid burgundy fills (bold) ---- */
   .tile {
     display: grid;
     place-items: center;
@@ -213,14 +223,14 @@ body { overflow-x: hidden; }
     color: #fff;
   }
   .tile-rose {
-    background: var(--surface-2);
-    border: 1px solid var(--hair);
-    color: var(--burgundy-2);
+    background: var(--burgundy);
+    border: 1px solid transparent;
+    color: #fff;
   }
   .tile-gold {
-    background: var(--surface-2);
-    border: 1px solid var(--hair);
-    color: var(--burgundy-2);
+    background: var(--burgundy);
+    border: 1px solid transparent;
+    color: #fff;
   }
 
   /* ---- Form fields ---- */

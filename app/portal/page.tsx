@@ -16,9 +16,13 @@ import {
   ChevronRight,
   CheckIcon,
   SparkIcon,
+  GiveIcon,
+  PrayIcon,
+  StarIcon,
+  CalendarChatIcon,
 } from "./_components/icons";
-import { LATEST_SERMON, EVENTS, BULLETIN, verseOfTheDay } from "./_lib/data";
-import { DAYS_LONG, formatDateTime } from "./_lib/format";
+import { LATEST_SERMON, EVENTS, BULLETIN, HYMNS, verseOfTheDay } from "./_lib/data";
+import { DAYS_LONG, formatDateTime, naira } from "./_lib/format";
 
 function serviceForDay(day: number): string | null {
   if (day === 0) return "Sunday Service";
@@ -63,42 +67,87 @@ export default function HomePage() {
 
   const weekEvents = [...EVENTS].sort((a, b) => a.day - b.day);
 
+  const totalGifts = store.gifts.reduce((sum, g) => sum + g.amount, 0);
+  const stats = [
+    {
+      label: "Check-ins",
+      value: store.checkIns.length,
+      Icon: CheckIcon,
+      href: "/portal/me",
+    },
+    {
+      label: "Given",
+      value: totalGifts > 0 ? naira(totalGifts) : "₦0",
+      Icon: GiveIcon,
+      href: "/portal/give",
+    },
+    {
+      label: "Requests",
+      value: store.submissions.length,
+      Icon: PrayIcon,
+      href: "/portal/connect",
+    },
+    {
+      label: "Hymns",
+      value: HYMNS.length,
+      Icon: BookIcon,
+      href: "/portal/hymnal",
+    },
+  ];
+
+  const quickActions = [
+    { label: "Give", Icon: GiveIcon, href: "/portal/give" },
+    { label: "Prayer", Icon: PrayIcon, href: "/portal/connect" },
+    { label: "Testify", Icon: StarIcon, href: "/portal/connect" },
+    { label: "Book Pastor", Icon: CalendarChatIcon, href: "/portal/connect" },
+  ];
+
   return (
     <div className="space-y-5 sm:space-y-6">
       {/* ---------------- HERO ---------------- */}
-      <section className="hero-card p-6 sm:p-8 lg:p-10 animate-rise">
-        <div className="relative flex flex-col lg:flex-row lg:items-end lg:justify-between gap-6">
+      <section className="hero-card p-6 sm:p-7 animate-rise">
+        {/* faint sermon-image texture, low opacity, for depth */}
+        <div className="pointer-events-none absolute inset-0 opacity-[0.12]">
+          <Image
+            src={LATEST_SERMON.thumbnail}
+            alt=""
+            fill
+            sizes="100vw"
+            className="object-cover"
+          />
+        </div>
+        <div className="relative flex flex-col lg:flex-row lg:items-center lg:justify-between gap-5">
           <div className="max-w-xl">
-            <div className="inline-flex items-center gap-2 chip bg-white/10 border-white/20 text-white/90">
+            <div className="inline-flex items-center gap-2 chip bg-black/25 border-white/25 text-white">
               <SparkIcon width={13} height={13} />
               {now ? DAYS_LONG[day] : "Welcome"}
             </div>
-            <h1 className="mt-4 font-display font-semibold text-3xl sm:text-4xl lg:text-5xl leading-[1.05]">
+            <h1 className="mt-3 font-display font-semibold text-2xl sm:text-3xl leading-[1.1]">
               {greetTitle}
             </h1>
-            <p className="mt-3 text-white/80 leading-relaxed text-base sm:text-lg">
+            <p className="mt-2 text-white/85 leading-relaxed text-sm sm:text-base">
               {greetSub}
             </p>
 
             {/* Check-in on service days */}
             {service && (
-              <div className="mt-6">
+              <div className="mt-5">
                 {alreadyCheckedIn ? (
-                  <div className="glass inline-flex items-center gap-3 px-4 py-3 rounded-2xl">
-                    <span className="grid place-items-center w-9 h-9 rounded-full bg-white/15 shrink-0">
-                      <CheckIcon width={18} height={18} />
+                  <div className="inline-flex items-center gap-3 px-4 py-2.5 rounded-full bg-black/25 border border-white/20">
+                    <span className="grid place-items-center w-8 h-8 rounded-full bg-white/15 shrink-0">
+                      <CheckIcon width={17} height={17} />
                     </span>
                     <span className="text-sm">
-                      <span className="font-medium">Checked in</span> for {service}.
-                      Thank you for being present.
+                      <span className="font-medium">Checked in</span> for{" "}
+                      {service}. Thank you!
                     </span>
                   </div>
                 ) : (
                   <button
                     onClick={() => setCheckInOpen(true)}
-                    className="btn-grad glow inline-flex items-center justify-center gap-2 h-14 px-7 rounded-2xl text-base font-semibold transition"
+                    className="glow inline-flex items-center justify-center gap-2 h-12 px-6 rounded-full bg-white text-[color:var(--burgundy)] text-sm font-semibold hover:brightness-95 transition"
                   >
-                    <SparkIcon width={20} height={20} />
+                    <SparkIcon width={18} height={18} />
                     Sign Attendance
                   </button>
                 )}
@@ -106,18 +155,73 @@ export default function HomePage() {
             )}
           </div>
 
-          {/* Verse of the day sits in the hero on non-service days */}
-          {!service && verse && (
-            <div className="glass rounded-2xl p-5 lg:max-w-xs w-full">
-              <div className="eyebrow text-white/70 mb-2">Verse of the Day</div>
-              <p className="font-display text-lg leading-relaxed">
-                “{verse.text}”
-              </p>
-              <p className="mt-2 text-sm text-gold-gradient font-medium">
-                {verse.ref}
-              </p>
-            </div>
+          {/* Latest message preview inside hero on non-service days */}
+          {!service && (
+            <button
+              onClick={() => {}}
+              className="shrink-0 flex items-center gap-3 rounded-2xl bg-black/25 border border-white/20 p-3 pr-4 text-left hover:bg-black/35 transition-colors w-full lg:w-auto"
+            >
+              <span className="grid place-items-center w-11 h-11 rounded-xl bg-white/15 shrink-0">
+                <PlayIcon width={20} height={20} />
+              </span>
+              <span className="min-w-0">
+                <span className="block text-[11px] text-white/70 uppercase tracking-wider">
+                  Latest Message
+                </span>
+                <span className="block text-sm font-medium truncate">
+                  {LATEST_SERMON.title}
+                </span>
+              </span>
+            </button>
           )}
+        </div>
+      </section>
+
+      {/* ---------------- STATS STRIP ---------------- */}
+      <section className="grid grid-cols-2 lg:grid-cols-4 gap-3 sm:gap-4">
+        {stats.map((s) => {
+          const { Icon } = s;
+          return (
+            <Link
+              key={s.label}
+              href={s.href}
+              className="card-tap p-4 sm:p-5 flex items-center gap-3 group"
+            >
+              <span className="tile tile-rose w-10 h-10 shrink-0">
+                <Icon width={18} height={18} />
+              </span>
+              <span className="min-w-0">
+                <span className="block font-display text-lg sm:text-xl leading-none tabular truncate">
+                  {s.value}
+                </span>
+                <span className="block text-xs text-white/50 mt-1">
+                  {s.label}
+                </span>
+              </span>
+            </Link>
+          );
+        })}
+      </section>
+
+      {/* ---------------- QUICK ACTIONS ---------------- */}
+      <section>
+        <div className="eyebrow-burgundy mb-3">Quick actions</div>
+        <div className="grid grid-cols-4 gap-2 sm:gap-3">
+          {quickActions.map((a) => {
+            const { Icon } = a;
+            return (
+              <Link
+                key={a.label}
+                href={a.href}
+                className="card-tap p-3 sm:p-4 flex flex-col items-center justify-center gap-2 text-center group"
+              >
+                <span className="tile w-11 h-11 group-hover:border-[color:var(--hair-strong)] transition-colors">
+                  <Icon width={20} height={20} />
+                </span>
+                <span className="text-xs text-white/70">{a.label}</span>
+              </Link>
+            );
+          })}
         </div>
       </section>
 
@@ -231,6 +335,48 @@ export default function HomePage() {
             ))}
           </div>
         </div>
+      </section>
+
+      {/* ---------------- ANNOUNCEMENTS + VERSE ---------------- */}
+      <section className="grid grid-cols-1 lg:grid-cols-12 gap-4 sm:gap-5">
+        <div className="lg:col-span-7 glass p-5 sm:p-6">
+          <div className="flex items-center justify-between mb-4">
+            <div>
+              <div className="eyebrow-burgundy">Noticeboard</div>
+              <h2 className="font-display text-xl mt-1">Announcements</h2>
+            </div>
+            <button
+              onClick={() => setBulletinOpen(true)}
+              className="chip hover:border-white/40 transition-colors"
+            >
+              Bulletin <ChevronRight width={13} height={13} />
+            </button>
+          </div>
+          <ul className="divide-hair">
+            {BULLETIN.announcements.map((item, i) => (
+              <li key={i} className="flex gap-3 py-3 first:pt-0 last:pb-0">
+                <span className="tile tile-rose w-8 h-8 shrink-0 text-xs tabular">
+                  {i + 1}
+                </span>
+                <span className="text-sm text-white/80 leading-relaxed">
+                  {item}
+                </span>
+              </li>
+            ))}
+          </ul>
+        </div>
+
+        {verse && (
+          <div className="lg:col-span-5 surface p-5 sm:p-6 flex flex-col">
+            <div className="eyebrow-burgundy mb-3">Verse of the Day</div>
+            <p className="font-display text-lg sm:text-xl leading-relaxed flex-1">
+              “{verse.text}”
+            </p>
+            <p className="mt-3 text-sm text-gradient font-medium">
+              {verse.ref}
+            </p>
+          </div>
+        )}
       </section>
 
       {store.checkIns.length > 0 && (

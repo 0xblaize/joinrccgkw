@@ -114,7 +114,7 @@ export default function LoginPage() {
       <div className="relative z-10 flex-1 flex items-center justify-center px-5 py-10">
         <div className="w-full max-w-md animate-rise">
           <div className="text-center mb-8">
-            <div className="eyebrow-burgundy mb-3">Member Portal</div>
+            <div className="eyebrow-burgundy mb-3">Kings World</div>
             <h1 className="font-display font-semibold text-3xl sm:text-4xl leading-tight">
               {mode === "login" ? "Welcome back." : "Join the family."}
             </h1>

@@ -1,7 +1,6 @@
 "use client";
 
 import { useRouter } from "next/navigation";
-import PageHeader from "../_components/PageHeader";
 import { useAuth } from "../_lib/auth";
 import { useStore } from "../_lib/store";
 import { celebration, formatDateTime, MONTHS } from "../_lib/format";
@@ -30,20 +29,18 @@ export default function MePage() {
 
   return (
     <div>
-      <PageHeader eyebrow="Profile" title="Me" />
-
       {/* Identity hero */}
-      <div className="hero-card p-6 sm:p-8 mb-6 animate-rise">
-        <div className="flex items-center gap-5">
-          <div className="grid place-items-center w-20 h-20 sm:w-24 sm:h-24 rounded-full bg-white/15 backdrop-blur-sm border border-white/25 font-display text-2xl sm:text-3xl uppercase shrink-0">
+      <div className="hero-card p-6 sm:p-7 mb-6 animate-rise">
+        <div className="flex items-center gap-4">
+          <div className="grid place-items-center w-16 h-16 sm:w-20 sm:h-20 rounded-full bg-white/15 border border-white/25 font-display text-xl sm:text-2xl uppercase shrink-0">
             {initials}
           </div>
           <div className="min-w-0">
-            <h2 className="font-display font-semibold text-2xl sm:text-3xl truncate">
+            <h2 className="font-display font-semibold text-xl sm:text-2xl truncate">
               {user.firstName} {user.lastName}
             </h2>
-            <p className="text-sm text-white/60 mt-1 truncate">{user.email}</p>
-            <span className="chip mt-3 bg-white/15 border-white/25 text-white">
+            <p className="text-sm text-white/70 mt-0.5 truncate">{user.email}</p>
+            <span className="chip mt-2 bg-black/25 border-white/25 text-white">
               {user.role}
             </span>
           </div>

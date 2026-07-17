@@ -5,7 +5,7 @@ import { useRouter } from "next/navigation";
 import { AuthProvider, useAuth } from "./_lib/auth";
 import { ToastProvider } from "./_components/Toast";
 import TabBar from "./_components/TabBar";
-import Sidebar from "./_components/Sidebar";
+import TopBar from "./_components/TopBar";
 
 function Guard({ children }: { children: React.ReactNode }) {
   const { user, ready } = useAuth();
@@ -42,8 +42,8 @@ export default function PortalLayout({
         <Guard>
           <div className="relative min-h-screen">
             <div className="portal-ambient" aria-hidden />
-            <Sidebar />
-            <div className="relative z-10 lg:pl-64">
+            <div className="relative z-10">
+              <TopBar />
               <div className="mx-auto w-full max-w-lg lg:max-w-6xl px-4 sm:px-6 lg:px-10 pt-6 lg:pt-8 content-pad-b">
                 {children}
               </div>

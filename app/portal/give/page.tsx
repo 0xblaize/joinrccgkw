@@ -72,26 +72,25 @@ export default function GivePage() {
   return (
     <div>
       <PageHeader
-        eyebrow="Give"
-        title="Giving Hub"
+        title="Give"
         description="A secure place for all your contributions. Thank you for partnering with the vision."
       />
 
       {/* Hero total */}
-      <div className="gold-card p-6 sm:p-7 mb-6 animate-rise flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
+      <div className="hero-card p-6 mb-6 animate-rise flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
         <div>
-          <div className="eyebrow text-gold-gradient">Your total giving</div>
-          <div className="font-display font-semibold text-4xl sm:text-5xl tabular mt-1">
+          <div className="eyebrow text-white/70">Your total giving</div>
+          <div className="font-display font-semibold text-3xl sm:text-4xl tabular mt-1">
             {naira(total)}
           </div>
-          <div className="text-sm text-white/55 mt-1">
+          <div className="text-sm text-white/70 mt-1">
             {store.gifts.length} record{store.gifts.length === 1 ? "" : "s"} this
             year
           </div>
         </div>
         <button
           onClick={() => setHistoryOpen(true)}
-          className="chip chip-gold h-10 px-4 self-start sm:self-auto"
+          className="inline-flex items-center gap-2 h-10 px-4 rounded-full bg-black/25 border border-white/20 text-sm self-start sm:self-auto hover:bg-black/35 transition-colors"
         >
           <DocIcon width={15} height={15} /> Giving history
         </button>

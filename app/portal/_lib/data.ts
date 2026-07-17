@@ -277,6 +277,299 @@ export const HYMNS: Hymn[] = [
       "Because he lives, I can face tomorrow,\nBecause he lives, all fear is gone;\nBecause I know he holds the future,\nAnd life is worth the living just because he lives.",
     ],
   },
+  {
+    id: 11,
+    number: 11,
+    title: "When the Roll Is Called Up Yonder",
+    author: "James M. Black",
+    verses: [
+      "When the trumpet of the Lord shall sound, and time shall be no more,\nAnd the morning breaks, eternal, bright and fair;\nWhen the saved of earth shall gather over on the other shore,\nAnd the roll is called up yonder, I'll be there.",
+      "When the roll is called up yonder,\nWhen the roll is called up yonder,\nWhen the roll is called up yonder,\nWhen the roll is called up yonder, I'll be there.",
+    ],
+  },
+  {
+    id: 12,
+    number: 12,
+    title: "All Hail the Power of Jesus' Name",
+    author: "Edward Perronet",
+    verses: [
+      "All hail the power of Jesus' name!\nLet angels prostrate fall;\nBring forth the royal diadem,\nAnd crown him Lord of all.",
+      "Let every kindred, every tribe,\nOn this terrestrial ball,\nTo him all majesty ascribe,\nAnd crown him Lord of all.",
+    ],
+  },
+  {
+    id: 13,
+    number: 13,
+    title: "Rock of Ages",
+    author: "Augustus Toplady",
+    verses: [
+      "Rock of Ages, cleft for me,\nLet me hide myself in thee;\nLet the water and the blood,\nFrom thy wounded side which flowed,\nBe of sin the double cure,\nSave from wrath and make me pure.",
+      "Nothing in my hand I bring,\nSimply to thy cross I cling;\nNaked, come to thee for dress;\nHelpless, look to thee for grace;\nFoul, I to the fountain fly;\nWash me, Saviour, or I die.",
+    ],
+  },
+  {
+    id: 14,
+    number: 14,
+    title: "When We Walk with the Lord (Trust and Obey)",
+    author: "John H. Sammis",
+    verses: [
+      "When we walk with the Lord in the light of his word,\nWhat a glory he sheds on our way!\nWhile we do his good will, he abides with us still,\nAnd with all who will trust and obey.",
+      "Trust and obey, for there's no other way\nTo be happy in Jesus, but to trust and obey.",
+    ],
+  },
+  {
+    id: 15,
+    number: 15,
+    title: "Jesus Loves Me",
+    author: "Anna B. Warner",
+    verses: [
+      "Jesus loves me! this I know,\nFor the Bible tells me so;\nLittle ones to him belong,\nThey are weak but he is strong.",
+      "Yes, Jesus loves me!\nYes, Jesus loves me!\nYes, Jesus loves me!\nThe Bible tells me so.",
+    ],
+  },
+  {
+    id: 16,
+    number: 16,
+    title: "Come, Thou Fount of Every Blessing",
+    author: "Robert Robinson",
+    verses: [
+      "Come, thou Fount of every blessing,\nTune my heart to sing thy grace;\nStreams of mercy, never ceasing,\nCall for songs of loudest praise.",
+      "Teach me some melodious sonnet,\nSung by flaming tongues above;\nPraise the mount! I'm fixed upon it,\nMount of thy redeeming love.",
+    ],
+  },
+  {
+    id: 17,
+    number: 17,
+    title: "Take My Life and Let It Be",
+    author: "Frances R. Havergal",
+    verses: [
+      "Take my life, and let it be\nConsecrated, Lord, to thee;\nTake my moments and my days,\nLet them flow in ceaseless praise.",
+      "Take my hands, and let them move\nAt the impulse of thy love;\nTake my feet, and let them be\nSwift and beautiful for thee.",
+    ],
+  },
+  {
+    id: 18,
+    number: 18,
+    title: "O Come, All Ye Faithful",
+    author: "John F. Wade",
+    verses: [
+      "O come, all ye faithful, joyful and triumphant,\nO come ye, O come ye to Bethlehem;\nCome and behold him, born the King of angels;",
+      "O come, let us adore him,\nO come, let us adore him,\nO come, let us adore him,\nChrist the Lord.",
+    ],
+  },
+  {
+    id: 19,
+    number: 19,
+    title: "Guide Me, O Thou Great Jehovah",
+    author: "William Williams",
+    verses: [
+      "Guide me, O thou great Jehovah,\nPilgrim through this barren land;\nI am weak, but thou art mighty,\nHold me with thy powerful hand.",
+      "Bread of heaven, bread of heaven,\nFeed me till I want no more,\nFeed me till I want no more.",
+    ],
+  },
+  {
+    id: 20,
+    number: 20,
+    title: "Count Your Blessings",
+    author: "Johnson Oatman Jr.",
+    verses: [
+      "When upon life's billows you are tempest tossed,\nWhen you are discouraged, thinking all is lost,\nCount your many blessings, name them one by one,\nAnd it will surprise you what the Lord hath done.",
+      "Count your blessings, name them one by one,\nCount your blessings, see what God hath done!\nCount your blessings, name them one by one,\nCount your many blessings, see what God hath done.",
+    ],
+  },
+  {
+    id: 21,
+    number: 21,
+    title: "Sweet Hour of Prayer",
+    author: "William W. Walford",
+    verses: [
+      "Sweet hour of prayer! sweet hour of prayer!\nThat calls me from a world of care,\nAnd bids me at my Father's throne\nMake all my wants and wishes known.",
+      "In seasons of distress and grief,\nMy soul has often found relief,\nAnd oft escaped the tempter's snare,\nBy thy return, sweet hour of prayer.",
+    ],
+  },
+  {
+    id: 22,
+    number: 22,
+    title: "There Is a Fountain",
+    author: "William Cowper",
+    verses: [
+      "There is a fountain filled with blood\nDrawn from Emmanuel's veins;\nAnd sinners plunged beneath that flood\nLose all their guilty stains.",
+      "The dying thief rejoiced to see\nThat fountain in his day;\nAnd there may I, though vile as he,\nWash all my sins away.",
+    ],
+  },
+  {
+    id: 23,
+    number: 23,
+    title: "I Need Thee Every Hour",
+    author: "Annie S. Hawks",
+    verses: [
+      "I need thee every hour,\nMost gracious Lord;\nNo tender voice like thine\nCan peace afford.",
+      "I need thee, O I need thee;\nEvery hour I need thee;\nO bless me now, my Saviour,\nI come to thee.",
+    ],
+  },
+  {
+    id: 24,
+    number: 24,
+    title: "Just As I Am",
+    author: "Charlotte Elliott",
+    verses: [
+      "Just as I am, without one plea,\nBut that thy blood was shed for me,\nAnd that thou bidst me come to thee,\nO Lamb of God, I come, I come.",
+      "Just as I am, thou wilt receive,\nWilt welcome, pardon, cleanse, relieve;\nBecause thy promise I believe,\nO Lamb of God, I come, I come.",
+    ],
+  },
+  {
+    id: 25,
+    number: 25,
+    title: "Love Divine, All Loves Excelling",
+    author: "Charles Wesley",
+    verses: [
+      "Love divine, all loves excelling,\nJoy of heaven, to earth come down,\nFix in us thy humble dwelling,\nAll thy faithful mercies crown.",
+      "Jesus, thou art all compassion,\nPure, unbounded love thou art;\nVisit us with thy salvation,\nEnter every trembling heart.",
+    ],
+  },
+  {
+    id: 26,
+    number: 26,
+    title: "Abide with Me",
+    author: "Henry F. Lyte",
+    verses: [
+      "Abide with me; fast falls the eventide;\nThe darkness deepens; Lord, with me abide;\nWhen other helpers fail and comforts flee,\nHelp of the helpless, O abide with me.",
+      "I fear no foe, with thee at hand to bless;\nIlls have no weight, and tears no bitterness;\nWhere is death's sting? where, grave, thy victory?\nI triumph still, if thou abide with me.",
+    ],
+  },
+  {
+    id: 27,
+    number: 27,
+    title: "Crown Him with Many Crowns",
+    author: "Matthew Bridges",
+    verses: [
+      "Crown him with many crowns,\nThe Lamb upon his throne;\nHark! how the heavenly anthem drowns\nAll music but its own:",
+      "Awake, my soul, and sing\nOf him who died for thee,\nAnd hail him as thy matchless King\nThrough all eternity.",
+    ],
+  },
+  {
+    id: 28,
+    number: 28,
+    title: "Blessed Be the Name",
+    author: "Ralph E. Hudson",
+    verses: [
+      "All praise to him who reigns above\nIn majesty supreme,\nWho gave his Son for man to die,\nThat he might man redeem!",
+      "Blessed be the name! Blessed be the name!\nBlessed be the name of the Lord!\nBlessed be the name! Blessed be the name!\nBlessed be the name of the Lord!",
+    ],
+  },
+  {
+    id: 29,
+    number: 29,
+    title: "What a Mighty God We Serve",
+    author: "Traditional",
+    verses: [
+      "What a mighty God we serve,\nWhat a mighty God we serve;\nAngels bow before him,\nHeaven and earth adore him,\nWhat a mighty God we serve.",
+    ],
+  },
+  {
+    id: 30,
+    number: 30,
+    title: "Wonderful, Merciful Saviour",
+    author: "Dawn Rodgers & Eric Wyse",
+    verses: [
+      "Wonderful, merciful Saviour,\nPrecious Redeemer and Friend;\nWho would have thought that a Lamb\nCould rescue the souls of men?\nOh, you rescue the souls of men.",
+      "You are the One that we praise,\nYou are the One we adore;\nYou give the healing and grace\nour hearts always hunger for,\nOh, our hearts always hunger for.",
+    ],
+  },
+  {
+    id: 31,
+    number: 31,
+    title: "Great and Mighty Is He",
+    author: "Traditional",
+    verses: [
+      "Great and mighty is he,\nGreat and mighty is he;\nClothed in glory, arrayed in splendour,\nGreat and mighty is he.",
+    ],
+  },
+  {
+    id: 32,
+    number: 32,
+    title: "Higher, Higher (Lift Jesus Higher)",
+    author: "Traditional",
+    verses: [
+      "Lift Jesus higher,\nLift Jesus higher;\nLift him up for the world to see;\nHe said if I be lifted up from the earth,\nI will draw all men unto me.",
+    ],
+  },
+  {
+    id: 33,
+    number: 33,
+    title: "Turn Your Eyes Upon Jesus",
+    author: "Helen H. Lemmel",
+    verses: [
+      "Turn your eyes upon Jesus,\nLook full in his wonderful face,\nAnd the things of earth will grow strangely dim,\nIn the light of his glory and grace.",
+    ],
+  },
+  {
+    id: 34,
+    number: 34,
+    title: "Victory Is Mine",
+    author: "Traditional",
+    verses: [
+      "Victory is mine, victory is mine,\nVictory today is mine;\nI told Satan, get thee behind,\nVictory today is mine.",
+    ],
+  },
+  {
+    id: 35,
+    number: 35,
+    title: "Jesus, Name Above All Names",
+    author: "Naida Hearn",
+    verses: [
+      "Jesus, name above all names,\nBeautiful Saviour, glorious Lord,\nEmmanuel, God is with us,\nBlessed Redeemer, living Word.",
+    ],
+  },
+  {
+    id: 36,
+    number: 36,
+    title: "In the Sweet By and By",
+    author: "Sanford F. Bennett",
+    verses: [
+      "There's a land that is fairer than day,\nAnd by faith we can see it afar;\nFor the Father waits over the way,\nTo prepare us a dwelling place there.",
+      "In the sweet by and by,\nWe shall meet on that beautiful shore;\nIn the sweet by and by,\nWe shall meet on that beautiful shore.",
+    ],
+  },
+  {
+    id: 37,
+    number: 37,
+    title: "Onward, Christian Soldiers",
+    author: "Sabine Baring-Gould",
+    verses: [
+      "Onward, Christian soldiers,\nMarching as to war,\nWith the cross of Jesus\nGoing on before!",
+      "Onward, Christian soldiers,\nMarching as to war,\nWith the cross of Jesus\nGoing on before.",
+    ],
+  },
+  {
+    id: 38,
+    number: 38,
+    title: "Sweet By and By (Thank You Lord)",
+    author: "Traditional",
+    verses: [
+      "Thank you Lord for saving my soul,\nThank you Lord for making me whole;\nThank you Lord for giving to me\nThy great salvation so rich and free.",
+    ],
+  },
+  {
+    id: 39,
+    number: 39,
+    title: "Nearer, My God, to Thee",
+    author: "Sarah F. Adams",
+    verses: [
+      "Nearer, my God, to thee,\nNearer to thee!\nE'en though it be a cross\nThat raiseth me;",
+      "Still all my song shall be,\nNearer, my God, to thee,\nNearer, my God, to thee,\nNearer to thee!",
+    ],
+  },
+  {
+    id: 40,
+    number: 40,
+    title: "Wonderful Grace of Jesus",
+    author: "Haldor Lillenas",
+    verses: [
+      "Wonderful grace of Jesus,\nGreater than all my sin;\nHow shall my tongue describe it,\nWhere shall its praise begin?",
+      "Wonderful the matchless grace of Jesus,\nDeeper than the mighty rolling sea;\nHigher than the mountain, sparkling like a fountain,\nAll sufficient grace for even me.",
+    ],
+  },
 ];
 
 export const BULLETIN = {
